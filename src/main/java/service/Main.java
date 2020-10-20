@@ -17,6 +17,7 @@ public class Main {
         1. Create all neseccary equipment
         2. Lazy initializations of ingridients
         3. Ready to serve orders
+        master branch
          */
 
         IngridientService ingridientService = (IngridientService) context.getBean("ingridientService");
