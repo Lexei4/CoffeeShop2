@@ -1,4 +1,4 @@
-package model;
+package ru.plushchov.model;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,6 +12,10 @@ public class Beverage implements Identified<UUID>{
 
     List<Equipment> equipmentList; // equipment needed to prepare this beverage
     List<Ingridient> ingridientList;
+
+    public Beverage(String beverageType) {
+        this.beverageType = beverageType;
+    }
 
     public BigDecimal calculateCost(){
         BigDecimal cost = new BigDecimal("0");

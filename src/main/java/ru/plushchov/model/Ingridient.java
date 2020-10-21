@@ -1,4 +1,4 @@
-package model;
+package ru.plushchov.model;
 
 
 import java.math.BigDecimal;

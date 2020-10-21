@@ -1,12 +1,14 @@
-package service;
+package ru.plushchov.service;
 
-import dao.IngridientDAO;
-import model.Ingridient;
+import org.springframework.stereotype.Service;
+import ru.plushchov.dao.IngridientDAO;
+import ru.plushchov.model.Ingridient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDateTime;
 
+@Service
 public class IngridientServiceImpl implements IngridientService{
 
     private static final Logger log = LogManager.getLogger(IngridientServiceImpl.class.getName());

@@ -1,6 +1,6 @@
-package service;
+package ru.plushchov.service;
 
-import model.Ingridient;
+import ru.plushchov.model.Ingridient;
 
 public interface IngridientService {
     void addIngredient(Ingridient ingridient);

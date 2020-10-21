@@ -1,6 +1,6 @@
-package service;
+package ru.plushchov.service;
 
-import model.Beverage;
+import ru.plushchov.model.Beverage;
 
 public interface BeverageService {
     void addBeverage(Beverage beverage);

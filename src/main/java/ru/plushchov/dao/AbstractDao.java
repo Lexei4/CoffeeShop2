@@ -1,6 +1,6 @@
-package dao;
+package ru.plushchov.dao;
 
-import model.Identified;
+import ru.plushchov.model.Identified;
 
 import java.io.Serializable;
 import java.util.Collection;

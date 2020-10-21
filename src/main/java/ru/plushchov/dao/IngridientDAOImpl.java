@@ -1,11 +1,11 @@
-package dao;
+package ru.plushchov.dao;
 
-import model.Beverage;
-import model.Ingridient;
+import ru.plushchov.model.Ingridient;
 
 import java.util.HashMap;
 import java.util.UUID;
 
+//@Repository
 public class IngridientDAOImpl extends AbstractDao<Ingridient, UUID> implements IngridientDAO {
 
     public IngridientDAOImpl() {

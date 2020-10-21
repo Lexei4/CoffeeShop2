@@ -1,14 +1,17 @@
-package dao;
+package ru.plushchov.dao;
 
-import model.Beverage;
+import ru.plushchov.model.Beverage;
+
 import java.util.HashMap;
 import java.util.UUID;
 
-public class BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
+//@Repository
+public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
 
-    private BeverageDAO beverageDAO;
+//    private BeverageDAO beverageDAO;
 
-    public BeverageDAOImpl() {super(Beverage.class, new HashMap<>());
+    public BeverageDAOImpl() {
+        super(Beverage.class, new HashMap<>());
     }
 
     @Override

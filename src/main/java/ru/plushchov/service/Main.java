@@ -1,17 +1,20 @@
-package service;
+package ru.plushchov.service;
 
-import model.Ingridient;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
+import ru.plushchov.config.*;
+import ru.plushchov.model.Ingridient;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Component
 public class Main {
     public static void main(String[] args) {
 
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("spring-context.xml");
+                new AnnotationConfigApplicationContext(SpringConfig.class);
 
         /*
         1. Create all neseccary equipment

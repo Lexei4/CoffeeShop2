@@ -1,6 +1,6 @@
-package dao;
+package ru.plushchov.dao;
 
-import model.Ingridient;
+import ru.plushchov.model.Ingridient;
 
 import java.util.UUID;
 

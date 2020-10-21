@@ -1,4 +1,4 @@
-package model;
+package ru.plushchov.model;
 
 import java.util.List;
 import java.util.UUID;

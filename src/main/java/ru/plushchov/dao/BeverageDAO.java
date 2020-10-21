@@ -1,7 +1,6 @@
-package dao;
+package ru.plushchov.dao;
 
-import model.Beverage;
-import model.Ingridient;
+import ru.plushchov.model.Beverage;
 
 import java.util.UUID;
 

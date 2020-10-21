@@ -1,14 +1,16 @@
-package service;
+package ru.plushchov.service;
 
-import dao.BeverageDAO;
-import dao.IngridientDAO;
-import model.Beverage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ru.plushchov.dao.BeverageDAO;
+import ru.plushchov.model.Beverage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@Service
 public class BeverageServiceImpl implements BeverageService{
 
-    private static final Logger log = LogManager.getLogger(IngridientServiceImpl.class.getName());
+    private static final Logger log = LogManager.getLogger(BeverageServiceImpl.class.getName());
 
     private BeverageDAO beverageDAO;
 
@@ -32,4 +34,8 @@ public class BeverageServiceImpl implements BeverageService{
         beverageDAO.update(beverage);
     }
 
+    @Autowired
+    public void setBeverageDAO(BeverageDAO beverageDAO) {
+        this.beverageDAO = beverageDAO;
+    }
 }
