@@ -1,6 +1,6 @@
 package service;
 
-import model.Ingridient;
+import model.Ingredient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,20 +15,20 @@ public class Main {
 
         /*
         1. Create all neseccary equipment
-        2. Lazy initializations of ingridients
+        2. Lazy initializations of ingredients
         3. Ready to serve orders
         master branch
          */
 
-        IngridientService ingridientService = (IngridientService) context.getBean("ingridientService");
+        IngredientService ingredientService = (IngredientService) context.getBean("ingredientService");
 
-        Ingridient coffeeBeans = new Ingridient();
+        Ingredient coffeeBeans = new Ingredient();
         coffeeBeans.setOrigin("Brazil");
-        coffeeBeans.setAmmount(200.00);
+        coffeeBeans.setAmount(new BigDecimal("200.00"));
         coffeeBeans.setId(UUID.randomUUID());
         coffeeBeans.setPrice(new BigDecimal("10.20"));
 
-        ingridientService.addIngredient(coffeeBeans);
+        ingredientService.addIngredient(coffeeBeans);
 
 
     }

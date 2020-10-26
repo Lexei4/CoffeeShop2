@@ -1,14 +1,13 @@
 package service;
 
 import dao.BeverageDAO;
-import dao.IngridientDAO;
 import model.Beverage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class BeverageServiceImpl implements BeverageService{
 
-    private static final Logger log = LogManager.getLogger(IngridientServiceImpl.class.getName());
+    private static final Logger log = LogManager.getLogger(IngredientServiceImpl.class.getName());
 
     private BeverageDAO beverageDAO;
 

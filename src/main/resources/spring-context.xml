@@ -3,11 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean name="ingridientDAO" class="dao.IngridientDAOImpl">
+    <bean name="ingredientDAO" class="dao.IngredientDAOImpl">
     </bean>
-    <bean id="ingridientService" class="service.IngridientServiceImpl" autowire="constructor">
-        <constructor-arg index="0" ref="ingridientDAO"/>
-        <!--        <property name="userDAO" ref="userDAO" />-->
+    <bean id="ingredientService" class="service.IngredientServiceImpl" autowire="constructor">
+        <constructor-arg index="0" ref="ingredientDAO"/>
     </bean>
+
+    <bean name="beverageDAO" class="dao.BeverageDAOImpl">
+    </bean>
+    <bean id="beverageService" class="service.BeverageServiceImpl" autowire="constructor">
+        <constructor-arg index="0" ref="beverageDAO"/>
+    </bean>
+
+    <bean name="equipmentDAO" class="dao.EquipmentDAOImpl">
+    </bean>
+    <bean id="equipmentService" class="service.EquipmentServiceImpl" autowire="constructor">
+        <constructor-arg index="0" ref="equipmentDAO"/>
+    </bean>
+
 
 </beans>

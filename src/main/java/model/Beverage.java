@@ -11,21 +11,9 @@ public class Beverage implements Identified<UUID>{
     BigDecimal beveragePrice; // retail price
 
     List<Equipment> equipmentList; // equipment needed to prepare this beverage
-    List<Ingridient> ingridientList;
+    List<Ingredient> ingredientList;
 
-    public BigDecimal calculateCost(){
-        BigDecimal cost = new BigDecimal("0");
-        for(Ingridient ing : ingridientList){
-            cost = cost.add(ing.getPrice().multiply(BigDecimal.valueOf(ing.getAmmount())));
-        }
-        return cost;
-    }
 
-    void prepareBeverage(){
-        for(Equipment eq : equipmentList){
-           eq.performAction(ingridientList);
-        }
-    }
 
     @Override
     public String toString() {
@@ -34,7 +22,7 @@ public class Beverage implements Identified<UUID>{
                 ", beverageId=" + beverageId +
                 ", beveragePrice=" + beveragePrice +
                 ", equipmentList=" + equipmentList +
-                ", ingridientList=" + ingridientList +
+                ", ingredientList=" + ingredientList +
                 '}';
     }
 
@@ -72,12 +60,12 @@ public class Beverage implements Identified<UUID>{
         this.equipmentList = equipmentList;
     }
 
-    public List<Ingridient> getIngridientList() {
-        return ingridientList;
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
     }
 
-    public void setIngridientList(List<Ingridient> ingridientList) {
-        this.ingridientList = ingridientList;
+    public void setIngredientList(List<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
     }
 
 

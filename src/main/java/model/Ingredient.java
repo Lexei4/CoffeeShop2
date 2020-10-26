@@ -4,10 +4,10 @@ package model;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class Ingridient implements  Identified<UUID>{
+public class Ingredient implements  Identified<UUID>{
     private UUID id;
     private String origin;
-    private double ammount;
+    private BigDecimal amount;
     private BigDecimal price;
     private String name;
 
@@ -30,12 +30,12 @@ public class Ingridient implements  Identified<UUID>{
         this.origin = origin;
     }
 
-    public double getAmmount() {
-        return ammount;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
-    public void setAmmount(double ammount) {
-        this.ammount = ammount;
+    public void setAmount(BigDecimal ammount) {
+        this.amount = ammount;
     }
 
     public BigDecimal getPrice() {
@@ -54,20 +54,20 @@ public class Ingridient implements  Identified<UUID>{
         return name;
     }
 
-    public Ingridient() {
+    public Ingredient() {
     }
 
-    public Ingridient(String origin) {
+    public Ingredient(String origin) {
         this.origin = origin;
     }
 
 
     @Override
     public String toString() {
-        return "Ingridient{" +
+        return "Ingredient{" +
                 "id=" + id +
                 ", origin='" + origin + '\'' +
-                ", ammount=" + ammount +
+                ", amount=" + amount +
                 ", price=" + price +
                 '}';
     }
