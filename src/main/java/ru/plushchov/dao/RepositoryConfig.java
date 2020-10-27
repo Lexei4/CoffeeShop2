@@ -13,9 +13,9 @@ public class RepositoryConfig {
 
     @Bean
 //    @Primary
-    public IngridientDAO getIngridientDAO() {
+    public IngredientDAO getIngredientDAO() {
 
-        return new IngridientDAOImpl();
+        return new IngredientDAOImpl();
     }
 
 }

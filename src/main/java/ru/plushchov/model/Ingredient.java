@@ -4,7 +4,7 @@ package ru.plushchov.model;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class Ingridient implements  Identified<UUID>{
+public class Ingredient implements  Identified<UUID>{
     private UUID id;
     private String origin;
     private double ammount;
@@ -54,17 +54,17 @@ public class Ingridient implements  Identified<UUID>{
         return name;
     }
 
-    public Ingridient() {
+    public Ingredient() {
     }
 
-    public Ingridient(String origin) {
+    public Ingredient(String origin) {
         this.origin = origin;
     }
 
 
     @Override
     public String toString() {
-        return "Ingridient{" +
+        return "Ingredient{" +
                 "id=" + id +
                 ", origin='" + origin + '\'' +
                 ", ammount=" + ammount +

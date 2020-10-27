@@ -2,15 +2,15 @@ package ru.plushchov.service;
 
 import org.springframework.context.annotation.Bean;
 import ru.plushchov.dao.BeverageDAO;
-import ru.plushchov.dao.IngridientDAO;
+import ru.plushchov.dao.IngredientDAO;
 
 //@Configuration
 
 public class ServiceConfig {
     @Bean
-    public IngridientService ingridientServiceImpl(IngridientDAO ingridientDAO) {
+    public IngredientService ingredientServiceImpl(IngredientDAO ingredientDAO) {
 
-        return new IngridientServiceImpl(ingridientDAO);
+        return new IngredientServiceImpl(ingredientDAO);
     }
 
     @Bean

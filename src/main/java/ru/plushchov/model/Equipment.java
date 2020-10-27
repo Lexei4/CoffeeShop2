@@ -36,5 +36,5 @@ public abstract class Equipment implements  Identified<UUID>{
         this.id = id;
     }
 
-    public abstract String performAction(List<Ingridient> ingridients); // performs an action that is required by this equipment
+    public abstract String performAction(List<Ingredient> ingredients); // performs an action that is required by this equipment
 }
