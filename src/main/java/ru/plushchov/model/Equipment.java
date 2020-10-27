@@ -1,13 +1,10 @@
 package ru.plushchov.model;
 
-import java.util.List;
 import java.util.UUID;
 
-public abstract class Equipment implements  Identified<UUID>{
+public class Equipment implements  Identified<UUID>{
 
     private UUID id;
-
-
 
     String name; // CoffeeMachine, Grinder, Scale
 
@@ -36,5 +33,4 @@ public abstract class Equipment implements  Identified<UUID>{
         this.id = id;
     }
 
-    public abstract String performAction(List<Ingredient> ingredients); // performs an action that is required by this equipment
 }

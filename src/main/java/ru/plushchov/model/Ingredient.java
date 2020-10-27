@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Ingredient implements  Identified<UUID>{
     private UUID id;
     private String origin;
-    private double ammount;
+    private BigDecimal amount;
     private BigDecimal price;
     private String name;
 
@@ -30,12 +30,12 @@ public class Ingredient implements  Identified<UUID>{
         this.origin = origin;
     }
 
-    public double getAmmount() {
-        return ammount;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
-    public void setAmmount(double ammount) {
-        this.ammount = ammount;
+    public void setAmmount(BigDecimal ammount) {
+        this.amount = ammount;
     }
 
     public BigDecimal getPrice() {
@@ -67,7 +67,7 @@ public class Ingredient implements  Identified<UUID>{
         return "Ingredient{" +
                 "id=" + id +
                 ", origin='" + origin + '\'' +
-                ", ammount=" + ammount +
+                ", amount=" + amount +
                 ", price=" + price +
                 '}';
     }

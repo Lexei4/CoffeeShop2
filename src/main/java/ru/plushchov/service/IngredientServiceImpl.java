@@ -26,4 +26,14 @@ public class IngredientServiceImpl implements IngredientService {
         ingredientDAO.save(ingredient);
     }
 
+    @Override
+    public void deleteIngredient(Ingredient ingredient) {
+        ingredientDAO.delete(ingredient);
+    }
+
+    @Override
+    public void updateIngredient(Ingredient ingredient) {
+        ingredientDAO.update(ingredient);
+    }
+
 }

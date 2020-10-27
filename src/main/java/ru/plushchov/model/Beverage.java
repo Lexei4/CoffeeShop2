@@ -17,19 +17,8 @@ public class Beverage implements Identified<UUID>{
         this.beverageType = beverageType;
     }
 
-    public BigDecimal calculateCost(){
-        BigDecimal cost = new BigDecimal("0");
-        for(Ingredient ing : ingredientList){
-            cost = cost.add(ing.getPrice().multiply(BigDecimal.valueOf(ing.getAmmount())));
-        }
-        return cost;
-    }
 
-    void prepareBeverage(){
-        for(Equipment eq : equipmentList){
-           eq.performAction(ingredientList);
-        }
-    }
+
 
     @Override
     public String toString() {
