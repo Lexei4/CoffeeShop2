@@ -1,11 +1,12 @@
 package ru.plushchov.dao;
 
+import org.springframework.stereotype.Repository;
 import ru.plushchov.model.Ingridient;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-//@Repository
+@Repository
 public class IngridientDAOImpl extends AbstractDao<Ingridient, UUID> implements IngridientDAO {
 
     public IngridientDAOImpl() {

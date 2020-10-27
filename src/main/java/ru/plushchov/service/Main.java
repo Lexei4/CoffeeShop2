@@ -23,7 +23,9 @@ public class Main {
         master branch
          */
 
-        IngridientService ingridientService = (IngridientService) context.getBean("ingridientService");
+        IngridientService ingridientService = (IngridientService) context.getBean("ingridientServiceImpl");
+
+
 
         Ingridient coffeeBeans = new Ingridient();
         coffeeBeans.setOrigin("Brazil");

@@ -5,6 +5,7 @@ import ru.plushchov.dao.BeverageDAO;
 import ru.plushchov.dao.IngridientDAO;
 
 //@Configuration
+
 public class ServiceConfig {
     @Bean
     public IngridientService ingridientServiceImpl(IngridientDAO ingridientDAO) {

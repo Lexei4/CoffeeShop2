@@ -1,11 +1,12 @@
 package ru.plushchov.dao;
 
+import org.springframework.stereotype.Repository;
 import ru.plushchov.model.Beverage;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-//@Repository
+@Repository
 public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
 
 //    private BeverageDAO beverageDAO;
