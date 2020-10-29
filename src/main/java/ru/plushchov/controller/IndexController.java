@@ -1,14 +1,15 @@
 package ru.plushchov.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+@Controller
 public class IndexController {
 
-    @RequestMapping(value = "/first")
+    @RequestMapping(value = "first", method = RequestMethod.GET)
 //    @GetMapping(value = "/first"")
     public String getIndex() {
-        return "first";
+        return "index";
     }
 }

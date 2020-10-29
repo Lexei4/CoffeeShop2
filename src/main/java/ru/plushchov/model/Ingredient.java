@@ -61,6 +61,13 @@ public class Ingredient implements  Identified<UUID>{
         this.origin = origin;
     }
 
+    public Ingredient(UUID id, String origin, BigDecimal amount, BigDecimal price, String name) {
+        this.id = id;
+        this.origin = origin;
+        this.amount = amount;
+        this.price = price;
+        this.name = name;
+    }
 
     @Override
     public String toString() {
