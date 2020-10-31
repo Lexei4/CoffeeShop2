@@ -17,8 +17,11 @@ public class Beverage implements Identified<UUID>{
         this.beverageType = beverageType;
     }
 
-
-
+    public Beverage(UUID beverageId, String beverageType, BigDecimal beveragePrice) {
+        this.beverageId = beverageId;
+        this.beverageType = beverageType;
+        this.beveragePrice = beveragePrice;
+    }
 
     @Override
     public String toString() {

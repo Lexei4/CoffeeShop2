@@ -15,6 +15,10 @@ public class Equipment implements  Identified<UUID>{
         this.name = name;
     }
 
+    public Equipment(UUID id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public void setName(String name){
         this.name = name;

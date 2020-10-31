@@ -21,7 +21,9 @@ public class IngredientDtoValidator implements Validator {
     }
 
     @Override
+    /*какой класс валидации поддерживает*/
     public boolean supports(Class<?> clazz) {
+
         return IngredientDto.class.equals(clazz);
     }
 
@@ -31,8 +33,8 @@ public class IngredientDtoValidator implements Validator {
 
         if (userForm.getName().isEmpty()) {
             logger.error("ingredientname is empty");
-            String message = messageSource.getMessage("ingredientname.empty", new Object[]{}, Locale.getDefault());
-            errors.rejectValue("ingredientname", "ingredientname.empty", message);
+                String message = messageSource.getMessage("name.empty", new Object[]{}, Locale.getDefault());
+            errors.rejectValue("ingredientName", "name.empty", message);
         }
 
         if (errors.hasErrors()) return;

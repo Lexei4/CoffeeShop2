@@ -28,9 +28,9 @@ public class BeverageServiceImpl implements BeverageService{
     @Override
     public void addBeverage(Beverage beverage) {
 
-        if (beverage.getIngredientList().size() >= Integer.valueOf(maxIngredient)){
-            throw new RuntimeException("A beverage can consist only of maximum " + maxIngredient + " ingredients");
-        }
+//        if (beverage.getIngredientList().size() >= Integer.valueOf(maxIngredient)){
+//            throw new RuntimeException("A beverage can consist only of maximum " + maxIngredient + " ingredients");
+//        }
 
         beverageDAO.save(beverage);
     }
