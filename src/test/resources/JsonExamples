@@ -13,6 +13,13 @@ JSON:
 URN: /api/registration/beverage
 JSON:
 {
-	"beverageType":"Capuccino",
+	"beverageType":"Cappuccino",
 	"beveragePrice": 20.5
 }
+
+URN: /api/registration/equipment
+JSON:
+{
+	"equipmentName":"Coffee Machine"
+}
+
