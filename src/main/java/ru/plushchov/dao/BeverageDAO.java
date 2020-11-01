@@ -7,7 +7,7 @@ import java.util.UUID;
 public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
 
 
-    Beverage findBeverageById(int id);
+    Beverage findBeverageById(UUID id);
 
     Beverage findBeverageByType(String name);
 }

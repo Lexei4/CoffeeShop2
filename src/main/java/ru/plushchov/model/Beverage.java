@@ -13,6 +13,9 @@ public class Beverage implements Identified<UUID>{
     List<Equipment> equipmentList; // equipment needed to prepare this beverage
     List<Ingredient> ingredientList;
 
+    public Beverage() {
+    }
+
     public Beverage(String beverageType) {
         this.beverageType = beverageType;
     }

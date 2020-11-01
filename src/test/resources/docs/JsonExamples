@@ -23,3 +23,10 @@ JSON:
 	"equipmentName":"Coffee Machine"
 }
 
+GET запросы:
+URN: /api/request/ingredient?id={id}
+/api/request/ingredient?id=af7b8b7e-08de-4626-9f8b-c809929c4cfe
+
+URN: /api/request/equipment?id={id}
+
+URN: /api/request/beverage?id={id}

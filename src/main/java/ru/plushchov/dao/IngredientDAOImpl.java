@@ -21,13 +21,20 @@ public class IngredientDAOImpl extends AbstractDao<Ingredient, UUID> implements 
         }
         return false;
     };
-    public Ingredient findIngredientById(String id){
+    public Ingredient findIngredientById(UUID id){
+        Ingredient ingredient = new Ingredient();
+
         for (Ingredient el : elements.values()) {
         if (el.getId().equals(id)) {
-            return el;
+            ingredient.setAmmount(el.getAmount());
+            ingredient.setPrice(el.getPrice());
+            ingredient.setId(el.getId());
+            ingredient.setName(el.getName());
+            ingredient.setOrigin(el.getOrigin());
         }
-    }
-        return null;
+    } 
+        return ingredient;
+        
     };
 
     public Ingredient findIngredientByName(String name){

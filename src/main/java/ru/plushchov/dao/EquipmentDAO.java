@@ -8,7 +8,7 @@ public interface EquipmentDAO extends GenericDAO<Equipment, UUID>{
 
     boolean equipmentExist(String username);
 
-    Equipment findEquipmentById(String id);
+    Equipment findEquipmentById(UUID id);
 
     Equipment findEquipmentByName(String name);
 

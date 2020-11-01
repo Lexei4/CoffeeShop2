@@ -8,7 +8,7 @@ public interface IngredientDAO extends GenericDAO<Ingredient, UUID>{
 
     boolean ingredientExist(String username);
 
-    Ingredient findIngredientById(String id);
+    Ingredient findIngredientById(UUID id);
 
     Ingredient findIngredientByName(String name);
 
