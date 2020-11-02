@@ -28,6 +28,7 @@ public class IngredientDto {
     }
 
     public String getOrigin() {
+        if (origin == null) return "Origin_not_set";
         return origin;
     }
 

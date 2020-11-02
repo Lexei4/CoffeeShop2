@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.plushchov.controller.dto.BeverageDto;
 import ru.plushchov.controller.dto.EquipmentDto;
 import ru.plushchov.controller.dto.IngredientDto;
-import ru.plushchov.service.RequestService;
+import ru.plushchov.service.REST.RequestService;
 
 import java.util.UUID;
 

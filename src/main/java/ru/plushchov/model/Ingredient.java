@@ -34,8 +34,8 @@ public class Ingredient implements  Identified<UUID>{
         return amount;
     }
 
-    public void setAmmount(BigDecimal ammount) {
-        this.amount = ammount;
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 
     public BigDecimal getPrice() {

@@ -1,4 +1,4 @@
-package ru.plushchov.service;
+package ru.plushchov.service.REST;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

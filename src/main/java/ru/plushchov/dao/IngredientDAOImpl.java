@@ -26,7 +26,7 @@ public class IngredientDAOImpl extends AbstractDao<Ingredient, UUID> implements 
 
         for (Ingredient el : elements.values()) {
         if (el.getId().equals(id)) {
-            ingredient.setAmmount(el.getAmount());
+            ingredient.setAmount(el.getAmount());
             ingredient.setPrice(el.getPrice());
             ingredient.setId(el.getId());
             ingredient.setName(el.getName());

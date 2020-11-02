@@ -1,4 +1,4 @@
-package ru.plushchov.service;
+package ru.plushchov.service.REST;
 
 import ru.plushchov.controller.dto.BeverageDto;
 import ru.plushchov.controller.dto.EquipmentDto;

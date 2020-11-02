@@ -29,7 +29,7 @@ public class Main {
 
         Ingredient coffeeBeans = new Ingredient();
         coffeeBeans.setOrigin("Brazil");
-        coffeeBeans.setAmmount(new BigDecimal("200.00"));
+        coffeeBeans.setAmount(new BigDecimal("200.00"));
         coffeeBeans.setId(UUID.randomUUID());
         coffeeBeans.setPrice(new BigDecimal("10.20"));
 
