@@ -2,6 +2,9 @@ package ru.plushchov.model;
 
 import java.util.UUID;
 
+/**
+ * Класс для работы с оборудованием
+ */
 public class Equipment implements  Identified<UUID>{
 
     private UUID id;

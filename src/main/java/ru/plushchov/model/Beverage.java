@@ -5,6 +5,9 @@ import java.util.List;
 
 import java.util.UUID;
 
+/**
+ * Класс для работы с напитками
+ */
 public class Beverage implements Identified<UUID>{
     String beverageType; // type of Beverage - Capucino, Latte, Espresso, Americano
     UUID beverageId;
