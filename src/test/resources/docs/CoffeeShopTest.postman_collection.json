@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "ba53d18b-ceb4-4801-a27b-4ef48261772a",
+		"name": "CoffeeShopTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST ingredientRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"origin\":\"Brazil\",\r\n\t\"name\":\"Coffee Beans\",\r\n\t\"amount\": 20.5,\r\n\t\"price\":12.23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/registration/ingredient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"registration",
+						"ingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST beverageRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"beverageType\":\"Cappuccino\",\r\n\t\"beveragePrice\": 20.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/registration/beverage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"registration",
+						"beverage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST equipmentRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"equipmentName\":\"Coffee Machine\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/registration/equipment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"registration",
+						"equipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingredientRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/request/ingredient?id=27e80628-f74e-4466-9d30-5a48937c5f58",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"request",
+						"ingredient"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "27e80628-f74e-4466-9d30-5a48937c5f58"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "equipmentRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/request/equipment?id=f5a45658-ee40-4d75-8224-9ace18e4d4e7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"request",
+						"equipment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "f5a45658-ee40-4d75-8224-9ace18e4d4e7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beverageRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/request/beverage?id=bc87bf48-578c-4fdf-b939-ae3fd8c286ff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"request",
+						"beverage"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "bc87bf48-578c-4fdf-b939-ae3fd8c286ff"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beverageUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"bc87bf48-578c-4fdf-b939-ae3fd8c286ff\",\r\n   \"beverageType\": \"Latte\",\r\n   \"beveragePrice\": 10.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/update/beverage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"update",
+						"beverage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingredientUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"27e80628-f74e-4466-9d30-5a48937c5f58\",\r\n   \"amount\": 15.5,\r\n   \"name\": \"Coffee Beans\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/update/ingredient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"update",
+						"ingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "equipmentUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"f5a45658-ee40-4d75-8224-9ace18e4d4e7\",\r\n\t\"equipmentName\":\"Grinder\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/update/equipment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"update",
+						"equipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beverageDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/delete/beverage?id=bc87bf48-578c-4fdf-b939-ae3fd8c286ff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete",
+						"beverage"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "bc87bf48-578c-4fdf-b939-ae3fd8c286ff"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingredientDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/delete/ingredient?id=27e80628-f74e-4466-9d30-5a48937c5f58",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete",
+						"ingredient"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "27e80628-f74e-4466-9d30-5a48937c5f58"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "equipmentDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/delete/equipment?id=f5a45658-ee40-4d75-8224-9ace18e4d4e7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete",
+						"equipment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "f5a45658-ee40-4d75-8224-9ace18e4d4e7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
