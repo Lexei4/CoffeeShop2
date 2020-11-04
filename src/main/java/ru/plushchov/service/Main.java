@@ -42,7 +42,7 @@ public class Main {
 
         Ingredient milk = new Ingredient();
         milk.setOrigin("Russia");
-        milk.setAmmount(new BigDecimal("10.00"));
+        milk.setAmount(new BigDecimal("10.00"));
         milk.setId(UUID.randomUUID());
         milk.setPrice(new BigDecimal("2.20"));
 
