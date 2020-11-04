@@ -52,7 +52,7 @@ public class UpdateServiceImpl implements UpdateService {
 
         beverageDAO.deleteByPK(beverageDto.getId());
 
-        beverageFromDao.setBeverageId(beverageDto.getId());
+        beverageFromDao.setId(beverageDto.getId());
         beverageFromDao.setBeveragePrice(beverageDto.getBeveragePrice());
         beverageFromDao.setBeverageType(beverageDto.getBeverageType());
 

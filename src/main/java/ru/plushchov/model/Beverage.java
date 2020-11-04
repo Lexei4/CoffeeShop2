@@ -24,7 +24,7 @@ public class Beverage implements Identified<UUID>{
     }
 
     public Beverage(UUID beverageId, String beverageType, BigDecimal beveragePrice) {
-        this.beverageId = beverageId;
+        this.id = beverageId;
         this.beverageType = beverageType;
         this.beveragePrice = beveragePrice;
     }

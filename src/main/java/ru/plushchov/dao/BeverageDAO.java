@@ -15,7 +15,7 @@ public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
      * @return
      * Осуществляет поиск напитка по id
      */
-    Beverage findBeverageById(int id);
+    Beverage findBeverageById(UUID id);
 
 
 

@@ -25,7 +25,7 @@ public interface EquipmentDAO extends GenericDAO<Equipment, UUID>{
      *
      * Осуществляет поиск оборудования по id
      */
-    Equipment findEquipmentById(String id);
+    Equipment findEquipmentById(UUID id);
 
     /**
      *

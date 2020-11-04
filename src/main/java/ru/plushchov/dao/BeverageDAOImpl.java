@@ -23,13 +23,14 @@ public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements Be
             if (el.getId().equals(id)) {
                 beverage.setBeverageType(el.getBeverageType());
                 beverage.setBeveragePrice(el.getBeveragePrice());
-                beverage.setBeverageId(el.getId());
+                beverage.setId(el.getId());
 //                beverage.setEquipmentList(el.getEquipmentList());
 //                beverage.setIngredientList(el.getIngredientList());
             }
         }
         return beverage;
     }
+
 
     @Override
     public Beverage findBeverageByType(String type) {
