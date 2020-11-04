@@ -4,6 +4,9 @@ package ru.plushchov.model;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+/**
+ * Класс для работы с ингредиентами в напитках
+ */
 public class Ingredient implements  Identified<UUID>{
     private UUID id;
     private String origin;
