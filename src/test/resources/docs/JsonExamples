@@ -30,3 +30,59 @@ URN: /api/request/ingredient?id={id}
 URN: /api/request/equipment?id={id}
 
 URN: /api/request/beverage?id={id}
+
+UPDATE Запросы:
+URN: /api/update/beverage
+{
+   "id": "5f60893c-6a1a-449a-9b05-9a2198a8852c",
+   "beverageType": "Latte",
+   "beveragePrice": 20.5
+}
+
+URN: /api/update/ingredient
+
+{
+   "id": "a253a735-fd74-48a2-919b-8c45efa47861",
+   "amount": 20.5,
+   "name": "Coffee Beans"
+}
+
+DELETE Запросы:
+
+URN: /api/delete/beverage?{id}
+
+/**
+Описание логики работ
+*/
+
+1. POST запрос
+{
+	"origin":"Brazil",
+	"name":"Coffee Beans",
+	"amount": 20.5,
+	"price":12.23
+}
+возвращает
+{
+   "id": "9520c206-c224-4f9c-b632-00286e863d54",
+   "origin": "Brazil",
+   "amount": 20.5,
+   "price": 12.23,
+   "name": "Coffee Beans",
+   "errors": null
+}
+
+2. PUT Запрос - обновляем страну происхождения
+
+{
+   "id": "9520c206-c224-4f9c-b632-00286e863d54",
+   "origin": "Equador",
+   "amount": 20.5,
+   "price": 12.23,
+   "name": "Coffee Beans",
+   "errors": null
+}
+
+3. GET запрос с этим ID возвращает объект с новым полем origin
+
+4. DELETE запрос с этим id удаляет этот ингредиент
