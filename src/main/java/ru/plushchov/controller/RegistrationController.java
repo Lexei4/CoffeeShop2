@@ -3,6 +3,8 @@ package ru.plushchov.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -31,7 +33,7 @@ public class RegistrationController {
     @PostMapping
 //    @RequestMapping(method = RequestMethod.POST)
     @RequestMapping("/ingredient")
-    public IngredientDto ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto, BindingResult result
+    public ResponseEntity <IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto, BindingResult result
            /* , HttpServletRequest httpServletRequest*/) {
 
 
@@ -41,11 +43,11 @@ public class RegistrationController {
 
         if (result.hasErrors()) {
             ingredientDto.setErrors(result.getAllErrors());
-            return ingredientDto;
+            return new ResponseEntity<>(ingredientDto, HttpStatus.CONFLICT);
         }
 
         registrationService.regIngredient(ingredientDto);
-        return ingredientDto;
+        return new ResponseEntity<>(ingredientDto, HttpStatus.CREATED);
     }
 
     @ModelAttribute

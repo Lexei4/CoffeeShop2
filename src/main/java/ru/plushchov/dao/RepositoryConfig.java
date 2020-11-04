@@ -20,7 +20,7 @@ public class RepositoryConfig {
     }
 
     @Bean
-//    @Primary
+    @Primary
     public EquipmentDAO getEquipmentDAO() {
 
         return new EquipmentDAOImpl();
