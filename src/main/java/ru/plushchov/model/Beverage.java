@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class Beverage implements Identified<UUID>{
     String beverageType; // type of Beverage - Capucino, Latte, Espresso, Americano
-    UUID beverageId;
+    UUID id;
     BigDecimal beveragePrice; // retail price
 
     List<Equipment> equipmentList; // equipment needed to prepare this beverage
@@ -24,7 +24,7 @@ public class Beverage implements Identified<UUID>{
     public String toString() {
         return "Beverage{" +
                 "beverageType='" + beverageType + '\'' +
-                ", beverageId=" + beverageId +
+                ", beverageId=" + id +
                 ", beveragePrice=" + beveragePrice +
                 ", equipmentList=" + equipmentList +
                 ", ingredientList=" + ingredientList +
@@ -42,11 +42,11 @@ public class Beverage implements Identified<UUID>{
     @Override
     public UUID getId() {
 
-        return beverageId;
+        return id;
     }
 
-    public void setBeverageId(UUID beverageId) {
-        this.beverageId = beverageId;
+    public void setId(UUID beverageId) {
+        this.id = beverageId;
     }
 
     public BigDecimal getBeveragePrice() {

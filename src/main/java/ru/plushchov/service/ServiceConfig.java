@@ -2,6 +2,7 @@ package ru.plushchov.service;
 
 import org.springframework.context.annotation.Bean;
 import ru.plushchov.dao.BeverageDAO;
+import ru.plushchov.dao.EquipmentDAO;
 import ru.plushchov.dao.IngredientDAO;
 
 //@Configuration
@@ -18,4 +19,11 @@ public class ServiceConfig {
 
         return new BeverageServiceImpl(beverageDAO);
     }
+
+    @Bean
+    public EquipmentService equipmentServiceImpl(EquipmentDAO equipmentDAO) {
+
+        return new EquipmentServiceImpl(equipmentDAO);
+    }
+
 }

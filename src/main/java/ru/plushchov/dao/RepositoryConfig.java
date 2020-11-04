@@ -18,4 +18,11 @@ public class RepositoryConfig {
         return new IngredientDAOImpl();
     }
 
+    @Bean
+//    @Primary
+    public EquipmentDAO getEquipmentDAO() {
+
+        return new EquipmentDAOImpl();
+    }
+
 }
