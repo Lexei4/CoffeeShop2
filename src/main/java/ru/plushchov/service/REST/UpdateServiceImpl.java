@@ -1,4 +1,4 @@
-package ru.plushchov.service;
+package ru.plushchov.service.REST;
 
 import org.springframework.stereotype.Service;
 import ru.plushchov.controller.dto.BeverageDto;
