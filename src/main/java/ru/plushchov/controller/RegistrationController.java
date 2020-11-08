@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -33,7 +34,7 @@ public class RegistrationController {
     @PostMapping
 //    @RequestMapping(method = RequestMethod.POST)
     @RequestMapping("/ingredient")
-    public ResponseEntity <IngredientDto> ingredientRegistration(@RequestBody IngredientDto ingredientDto,
+    public ResponseEntity <IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto,
                                                                  UriComponentsBuilder componentsBuilder) {
         var result = registrationService.regIngredient(ingredientDto);
         var uri = componentsBuilder.path("/api/ingredient/" + result.getId()).buildAndExpand(result).toUri();

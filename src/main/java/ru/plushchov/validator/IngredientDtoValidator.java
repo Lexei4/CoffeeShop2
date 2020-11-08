@@ -11,6 +11,7 @@ import ru.plushchov.controller.dto.IngredientDto;
 import java.util.Locale;
 
 @Component
+//@PropertySource(value = {"classpath:application.properties"})
 public class IngredientDtoValidator implements Validator {
 
     private MessageSource messageSource;
