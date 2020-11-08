@@ -3,6 +3,7 @@ package ru.plushchov.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.plushchov.controller.dto.BeverageDto;
@@ -23,6 +24,7 @@ public class UpdateController {
     }
 
     @PutMapping
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping("/ingredient")
     public String ingredientUpdate(@RequestBody IngredientDto ingredientDto, BindingResult result) {
 
@@ -44,6 +46,7 @@ public class UpdateController {
     }
 
     @PutMapping
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping("/beverage")
     public BeverageDto beverageUpdate(@RequestBody BeverageDto beverageDto, BindingResult result) {
 
@@ -64,6 +67,7 @@ public class UpdateController {
     }
 
     @PutMapping
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping("/equipment")
     public EquipmentDto equipmentUpdate(@RequestBody EquipmentDto equipmentDto, BindingResult result) {
 

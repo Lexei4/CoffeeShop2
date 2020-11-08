@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 import ru.plushchov.controller.dto.BeverageDto;
 import ru.plushchov.controller.dto.EquipmentDto;
 import ru.plushchov.controller.dto.IngredientDto;
@@ -33,21 +33,14 @@ public class RegistrationController {
     @PostMapping
 //    @RequestMapping(method = RequestMethod.POST)
     @RequestMapping("/ingredient")
-    public ResponseEntity <IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto, BindingResult result
-           /* , HttpServletRequest httpServletRequest*/) {
+    public ResponseEntity <IngredientDto> ingredientRegistration(@RequestBody IngredientDto ingredientDto,
+                                                                 UriComponentsBuilder componentsBuilder) {
+        var result = registrationService.regIngredient(ingredientDto);
+        var uri = componentsBuilder.path("/api/ingredient/" + result.getId()).buildAndExpand(result).toUri();
+        return ResponseEntity.created(uri).body(result);
 
-
-
-//        ingredientDtoValidator.validate(ingredientDto, result);
-
-
-        if (result.hasErrors()) {
-            ingredientDto.setErrors(result.getAllErrors());
-            return new ResponseEntity<>(ingredientDto, HttpStatus.CONFLICT);
-        }
-
-        registrationService.regIngredient(ingredientDto);
-        return new ResponseEntity<>(ingredientDto, HttpStatus.CREATED);
+//        registrationService.regIngredient(ingredientDto);
+//        return new ResponseEntity<>(ingredientDto, HttpStatus.CREATED);
     }
 
     @ModelAttribute
@@ -66,6 +59,7 @@ public class RegistrationController {
 
     @PostMapping
 //    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping("/beverage")
     public BeverageDto beverageRegistration(@RequestBody BeverageDto beverageDto, BindingResult result
             /* , HttpServletRequest httpServletRequest*/) {
@@ -88,6 +82,7 @@ public class RegistrationController {
 
     @PostMapping
 //    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping("/equipment")
     public EquipmentDto equipmentRegistration(@RequestBody EquipmentDto equipmentDto, BindingResult result
             /* , HttpServletRequest httpServletRequest*/) {

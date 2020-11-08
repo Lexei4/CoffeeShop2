@@ -3,10 +3,8 @@ package ru.plushchov.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import ru.plushchov.service.REST.DeleteService;
 
 import java.util.UUID;
@@ -24,6 +22,7 @@ public class DeleteController {
     }
 
     @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping("/ingredient")
     public String ingredientDeleteById(@RequestParam UUID id) {
 
@@ -32,6 +31,7 @@ public class DeleteController {
     }
 
     @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping("/beverage")
     public String beverageDeleteById(@RequestParam UUID id) {
 
@@ -40,6 +40,7 @@ public class DeleteController {
     }
 
     @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping("/equipment")
     public String equipmentDeleteById(@RequestParam UUID id) {
 
