@@ -29,13 +29,14 @@ public class IngredientDtoValidator implements Validator {
     }
 
     @Override
+
     public void validate(Object target, Errors errors) {
         var userForm = (IngredientDto) target;
 
         if (userForm.getName().isEmpty()) {
             logger.error("ingredientname is empty");
                 String message = messageSource.getMessage("name.empty", new Object[]{}, Locale.getDefault());
-            errors.rejectValue("ingredientName", "name.empty", message);
+            errors.rejectValue("name", "name.empty", message);
         }
 
         if (errors.hasErrors()) return;
