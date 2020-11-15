@@ -1,0 +1,39 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1" author="Alex Plushchov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="beverage"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="beverage"
+                     remarks="Таблица заказанных напитков">
+            <column name="id" type="uuid"
+                    remarks="Идентификатор записи">
+                <constraints primaryKey="true"
+                             primaryKeyName="beverage_pk"
+                             nullable="false"/>
+            </column>
+
+            <column name="beverage_type" type="varchar(255)" remarks="Наименование напитка">
+                <constraints nullable="false"/>
+            </column>
+            <column name="beverage_price" type="varchar(255)" remarks="Цена напитка">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamp with time zone" remarks="Дата создания">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamp with time zone" remarks="Дата обновления">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <comment>Задача по созданию напитков</comment>
+    </changeSet>
+
+</databaseChangeLog>

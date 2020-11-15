@@ -1,0 +1,55 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1" author="Alex Plushchov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="ingredient"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="ingredient"
+                     remarks="Таблица имеющихся ингредиентов">
+            <column name="id" type="uuid"
+                    remarks="Идентификатор записи">
+                <constraints primaryKey="true"
+                             primaryKeyName="ingredient_pk"
+                             nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)" remarks="Наименование краткое">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ingredient_origin" type="varchar(255)" remarks="страна происхождения"/>
+            <column name="amount" type="numeric(5,2)" remarks="количество в граммах"/>
+            <column name="price" type="numeric(5,2)" remarks="цена в USD за грамм">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="beverage_id" type="uuid" remarks="Напиток">
+                <constraints foreignKeyName="ingredient_fk"
+                             referencedTableName="beverage"
+                             referencedColumnNames="id"
+                             nullable="false"/>
+            </column>
+
+        </createTable>
+        <comment>Задача по созданию напитка</comment>
+    </changeSet>
+
+    <changeSet id="2" author="Alex Plushchov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <indexExists tableName="ingredient" indexName="ingredient_name_idx"/>
+            </not>
+        </preConditions>
+        <createIndex tableName="ingredient" indexName="ingredient_name_idx">
+            <column name="ingredient"/>
+        </createIndex>
+        <comment>Индекс для поиска по наименованию ингредиента</comment>
+    </changeSet>
+
+</databaseChangeLog>

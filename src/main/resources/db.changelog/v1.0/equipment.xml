@@ -1,0 +1,38 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1" author="Alex Plushchov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="equipment"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="equipment"
+                     remarks="Таблица оборужования">
+            <column name="id" type="uuid"
+                    remarks="Идентификатор записи">
+                <constraints primaryKey="true"
+                             primaryKeyName="equipment_pk"
+                             nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)" remarks="Наименование краткое">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="beverage_id" type="uuid" remarks="Напиток">
+                <constraints foreignKeyName="equipment_fk"
+                             referencedTableName="beverage"
+                             referencedColumnNames="id"
+                             nullable="false"/>
+            </column>
+
+        </createTable>
+        <comment>Задача по созданию оборудования</comment>
+    </changeSet>
+
+</databaseChangeLog>
