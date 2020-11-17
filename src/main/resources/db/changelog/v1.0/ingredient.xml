@@ -40,16 +40,16 @@
         <comment>Задача по созданию напитка</comment>
     </changeSet>
 
-    <changeSet id="2" author="Alex Plushchov">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <indexExists tableName="ingredient" indexName="ingredient_name_idx"/>
-            </not>
-        </preConditions>
-        <createIndex tableName="ingredient" indexName="ingredient_name_idx">
-            <column name="ingredient"/>
-        </createIndex>
-        <comment>Индекс для поиска по наименованию ингредиента</comment>
-    </changeSet>
+<!--    <changeSet id="2" author="Alex Plushchov">-->
+<!--        <preConditions onFail="MARK_RAN">-->
+<!--            <not>-->
+<!--                <indexExists tableName="ingredient" indexName="ingredient_name_idx"/>-->
+<!--            </not>-->
+<!--        </preConditions>-->
+<!--        <createIndex tableName="ingredient" indexName="ingredient_name_idx">-->
+<!--            <column name="ingredient"/>-->
+<!--        </createIndex>-->
+<!--        <comment>Индекс для поиска по наименованию ингредиента</comment>-->
+<!--    </changeSet>-->
 
 </databaseChangeLog>
