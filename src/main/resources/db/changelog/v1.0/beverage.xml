@@ -23,7 +23,7 @@
             <column name="beverage_type" type="varchar(255)" remarks="Наименование напитка">
                 <constraints nullable="false"/>
             </column>
-            <column name="beverage_price" type="varchar(255)" remarks="Цена напитка">
+            <column name="beverage_price" type="numeric(5,2)" remarks="Цена напитка">
                 <constraints nullable="false"/>
             </column>
             <column name="created_at" type="timestamp with time zone" remarks="Дата создания">
