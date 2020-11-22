@@ -22,7 +22,6 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
         return false;
     };
 
-
     public Equipment findEquipmentById(String id){
         for (Equipment el : elements.values()) {
             if (el.getId().equals(id)) {

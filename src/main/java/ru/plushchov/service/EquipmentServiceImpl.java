@@ -9,7 +9,6 @@ import ru.plushchov.model.Equipment;
 @Service
 public class EquipmentServiceImpl implements  EquipmentService{
     private static final Logger log = LogManager.getLogger(EquipmentServiceImpl.class.getName());
-
     private EquipmentDAO equipmentDAO;
 
     public EquipmentServiceImpl(EquipmentDAO equipmentDAO) {

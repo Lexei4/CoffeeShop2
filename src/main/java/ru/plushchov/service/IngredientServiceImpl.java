@@ -17,9 +17,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Value("${ingredient.maxPrice}")
     private String maxIngredientPrice;
-
     private static final Logger log = LogManager.getLogger(IngredientServiceImpl.class.getName());
-
     private IngredientDAO ingredientDAO;
 
     public IngredientServiceImpl(IngredientDAO ingredientDAO) {
@@ -32,7 +30,6 @@ addIngridient is a Service method which will only work if price of the ingridien
  */
     @Override
     public void addIngredient(Ingredient ingredient) {
-
         BigDecimal price = new BigDecimal("200");
 
         if (ingredient.getPrice().compareTo(price) > 0)

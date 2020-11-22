@@ -9,8 +9,6 @@ import java.util.UUID;
 @Repository
 public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
 
-//    private BeverageDAO beverageDAO;
-
     public BeverageDAOImpl() {
         super(Beverage.class, new HashMap<>());
     }

@@ -20,17 +20,8 @@ public class Main {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        /*
-        1. Create all neseccary equipment
-        2. Lazy initializations of ingredients
-        3. Ready to serve orders
-        master branch
-         */
-
         IngredientService ingredientService = (IngredientService) context.getBean("ingredientServiceImpl");
         EquipmentService equipmentService = (EquipmentService) context.getBean("equipmentServiceImpl");
-
-
 
         Ingredient coffeeBeans = new Ingredient();
         coffeeBeans.setOrigin("Brazil");
@@ -75,8 +66,5 @@ public class Main {
         cappuccino.setBeveragePrice(new BigDecimal("5.50"));
         cappuccino.setIngredientList(cappuccinoIngredientList);
         cappuccino.setEquipmentList(cappuccinoEquipmentList);
-
-
-
     }
 }
