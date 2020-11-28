@@ -11,11 +11,13 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
     @Bean
     public DataSource dataSource(Environment environment) {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        var dataSource = new DriverManagerDataSource();
+//        var dataSource = new SingleConnectionDataSource();
         dataSource.setDriverClassName(environment.getRequiredProperty("datasource.driver"));
         dataSource.setUrl(environment.getRequiredProperty("datasource.url"));
         dataSource.setUsername(environment.getRequiredProperty("datasource.username"));
         dataSource.setPassword(environment.getRequiredProperty("datasource.password"));
+//        dataSource.setSuppressClose(true);
         return dataSource;
     }
 }
