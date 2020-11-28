@@ -31,7 +31,8 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
                 equipment.setName(el.getName());
             }
         }
-        return equipment;
+        //ToDo: нельзя возвращать null - разобраться почему так сделано и пофиксить
+        return null;
     };
 
     public Equipment findEquipmentByName(String name){
