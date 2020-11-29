@@ -7,7 +7,13 @@ import java.util.UUID;
  */
 public class Equipment implements  Identified<UUID>{
 
+    /**
+     * ID оборудования
+     */
     private UUID id;
+    /**
+     * Наименование оборудования
+     */
     String name;
 
     public Equipment() {
@@ -24,7 +30,7 @@ public class Equipment implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий наименование оборудования
-     * @param name
+     * @param name - наименование оборудования
      */
     public void setName(String name){
         this.name = name;
@@ -32,7 +38,7 @@ public class Equipment implements  Identified<UUID>{
 
     /**
      * Метод, возвращиющий наименование оборудования
-     * @return
+     * @return name - наименование оборудования
      */
     public String getName(){
         return name;
@@ -40,7 +46,7 @@ public class Equipment implements  Identified<UUID>{
 
     /**
      * Метод, возвращиющий ID оборудования
-     * @return
+     * @return id - id данношо оборудования
      */
     @Override
     public UUID getId() {
@@ -49,7 +55,7 @@ public class Equipment implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий ID оборудования
-     * @param id
+     * @param id id данношо оборудования
      */
     public void setId(UUID id) {
         this.id = id;

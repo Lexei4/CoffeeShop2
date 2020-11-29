@@ -9,10 +9,25 @@ import java.util.UUID;
  * Класс для работы с напитками
  */
 public class Beverage implements Identified<UUID>{
+    /**
+     * Тип напика. Latte, cappuccino, americanno, espresso.
+     */
     String beverageType;
+    /**
+     * ID напитка
+     */
     UUID id;
+    /**
+     * Стоимость напитка
+     */
     BigDecimal beveragePrice;
+    /**
+     * оборудование, задействованное в приготовлении напитка
+     */
     List<Equipment> equipmentList;
+    /**
+     * Ингредиенты, необходимые для приготовления напитка
+     */
     List<Ingredient> ingredientList;
 
     public Beverage(){
@@ -41,7 +56,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, возвращающий тип напитка
-     * @return String beverageTyoe
+     * @return String beverageTyoe - тип напитка
      */
     public String getBeverageType() {
         return beverageType;
@@ -49,15 +64,16 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, устанавляивающий тип напитка
-     * type of Beverage - Capucino, Latte, Espresso, Americano etc.
+     * @param beverageType type of Beverage - Capзucсino, Latte, Espresso, Americano etc.
      */
+
     public void setBeverageType(String beverageType) {
         this.beverageType = beverageType;
     }
 
     /**
      * Метод, возвращающий ID напитка
-     * @return
+     * @return id - id данного напитка
      */
     @Override
     public UUID getId() {
@@ -66,7 +82,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, устанавляивающий ID напитка
-     * @param beverageId
+     * @param beverageId - id для данного напитка
      */
     public void setId(UUID beverageId) {
         this.id = beverageId;
@@ -75,7 +91,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, возвращающий цену напитка
-     * @return
+     * @return beveragePrice - цена данного напитка
      */
     public BigDecimal getBeveragePrice() {
         return beveragePrice;
@@ -83,7 +99,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, устанавляивающий цену напитка
-     * @param beveragePrice
+     * @param beveragePrice - цена данного напитка
      */
     public void setBeveragePrice(BigDecimal beveragePrice) {
         this.beveragePrice = beveragePrice;
@@ -91,7 +107,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, возвращающий список оборудования, используемый для приготовления напитка
-     * @return
+     * @return equipmentList - список оборудования
      */
     public List<Equipment> getEquipmentList() {
         return equipmentList;
@@ -99,7 +115,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, устанавливающий список оборудования, используемый для приготовления напитка
-     * @param equipmentList
+     * @param equipmentList - список оборудования
      */
     public void setEquipmentList(List<Equipment> equipmentList) {
         this.equipmentList = equipmentList;
@@ -107,7 +123,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, возвращающий список ингредиентов, используемых для приготовления напитка
-     * @return
+     * @return ingredientList - список ингредиентов
      */
     public List<Ingredient> getIngredientList() {
         return ingredientList;
@@ -115,7 +131,7 @@ public class Beverage implements Identified<UUID>{
 
     /**
      * Метод, устанавливающий список ингредиентов, используемых для приготовления напитка
-     * @param ingredientList
+     * @param ingredientList - список ингредиентов
      */
     public void setIngredientList(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
