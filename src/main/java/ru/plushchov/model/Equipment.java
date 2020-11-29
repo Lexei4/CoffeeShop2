@@ -14,7 +14,7 @@ public class Equipment implements  Identified<UUID>{
     /**
      * Наименование оборудования
      */
-    String name;
+    private String name;
 
     public Equipment() {
     }

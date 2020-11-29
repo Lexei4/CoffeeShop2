@@ -12,23 +12,23 @@ public class Beverage implements Identified<UUID>{
     /**
      * Тип напика. Latte, cappuccino, americanno, espresso.
      */
-    String beverageType;
+    private String beverageType;
     /**
      * ID напитка
      */
-    UUID id;
+    private UUID id;
     /**
      * Стоимость напитка
      */
-    BigDecimal beveragePrice;
+    private BigDecimal beveragePrice;
     /**
      * оборудование, задействованное в приготовлении напитка
      */
-    List<Equipment> equipmentList;
+    private List<Equipment> equipmentList;
     /**
      * Ингредиенты, необходимые для приготовления напитка
      */
-    List<Ingredient> ingredientList;
+    private List<Ingredient> ingredientList;
 
     public Beverage(){
 
