@@ -11,6 +11,9 @@ import ru.plushchov.service.REST.DeleteService;
 
 import java.util.UUID;
 
+/**
+ * Контроллер для обработки Delete запросов
+ */
 @RestController
 @RequestMapping("/api/delete")
 public class DeleteController {

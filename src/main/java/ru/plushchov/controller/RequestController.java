@@ -11,6 +11,9 @@ import ru.plushchov.service.REST.RequestService;
 
 import java.util.UUID;
 
+/**
+ * Контроллер для обработки GET запросов
+ */
 @RestController
 @RequestMapping("/api/request")
 public class RequestController {

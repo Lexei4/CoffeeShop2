@@ -14,7 +14,9 @@ import ru.plushchov.controller.dto.EquipmentDto;
 import ru.plushchov.controller.dto.IngredientDto;
 import ru.plushchov.service.REST.RegistrationService;
 import ru.plushchov.validator.IngredientDtoValidator;
-
+/**
+ * Контроллер для обработки POST запросов
+ */
 @RestController
 @RequestMapping("/api/registration")
 public class RegistrationController {

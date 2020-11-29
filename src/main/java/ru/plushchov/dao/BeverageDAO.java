@@ -11,7 +11,7 @@ public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
 
     /**
      *
-     * @param id
+     * @param id - id напитка
      * @return
      * Осуществляет поиск напитка по id
      */
@@ -21,7 +21,7 @@ public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
 
     /**
      *
-     * @param name
+     * @param name имя напитка
      * @return
      * Осуществляет поиск ингредиента по типу
      */

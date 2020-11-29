@@ -8,21 +8,21 @@ import ru.plushchov.model.Beverage;
 public interface BeverageService {
     /**
      *
-     * @param beverage
+     * @param beverage - объект напиток
      * добавляет напиток  в DAO
      */
     void addBeverage(Beverage beverage);
 
     /**
      *
-     * @param beverage
+     * @param beverage - объект напиток
      * удаляет напиток из  DAO
      */
     void deleteBeverage(Beverage beverage);
 
     /**
      *
-     * @param beverage
+     * @param beverage -  объект напиток
      * обновляет напиток в ДАО
      */
     void updateBeverage(Beverage beverage);

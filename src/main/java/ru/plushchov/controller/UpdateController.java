@@ -10,6 +10,9 @@ import ru.plushchov.controller.dto.EquipmentDto;
 import ru.plushchov.controller.dto.IngredientDto;
 import ru.plushchov.service.REST.UpdateService;
 
+/**
+ * Контроллер для обработки PUT запросов
+ */
 @RestController
 @RequestMapping("/api/update")
 public class UpdateController {

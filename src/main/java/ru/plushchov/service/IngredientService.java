@@ -8,7 +8,7 @@ import ru.plushchov.model.Ingredient;
 public interface IngredientService {
     /**
      *
-     * @param ingredient
+     * @param ingredient - объект ингредиент
      *
      * добавляет ингредиент в DAO
      */
@@ -16,14 +16,14 @@ public interface IngredientService {
 
     /**
      *
-     * @param ingredient
+     * @param ingredient  - объект ингредиент
      * удаляет ингредиент из  DAO
      */
     void deleteIngredient(Ingredient ingredient);
 
     /***
      *
-     * @param ingredient
+     * @param ingredient  - объект ингредиент
      * обновляет ингредиент в ДАО
      */
     void updateIngredient(Ingredient ingredient);

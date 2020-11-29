@@ -11,17 +11,17 @@ public interface EquipmentDAO extends GenericDAO<Equipment, UUID>{
 
     /**
      *
-     * @param username
-     * @return
+     * @param name - наименование оборудования
+     * @return boolean - возвращает true, если находит оборудование и flase - если нет
      *
      * проверяет находится ли данное оборудование в DAO
      */
-    boolean equipmentExist(String username);
+    boolean equipmentExist(String name);
 
     /**
      *
-     * @param id
-     * @return
+     * @param id - id оборудования
+     * @return  в случае успеха создает новый DAO объект по данному id
      *
      * Осуществляет поиск оборудования по id
      */
@@ -30,7 +30,7 @@ public interface EquipmentDAO extends GenericDAO<Equipment, UUID>{
     /**
      *
      * @param name
-     * @return
+     * @return в случае успеха создает новый DAO объект по данному имени
      *
      * Осуществляет поиск оборудования по имени
      */
