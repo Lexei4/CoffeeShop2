@@ -8,7 +8,6 @@ import java.util.UUID;
  * Интерфейс для работы с DAO класса Beverage
  */
 public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
-
     /**
      *
      * @param id - id напитка
@@ -16,8 +15,6 @@ public interface BeverageDAO  extends GenericDAO<Beverage, UUID>{
      * Осуществляет поиск напитка по id
      */
     Beverage findBeverageById(UUID id);
-
-
 
     /**
      *

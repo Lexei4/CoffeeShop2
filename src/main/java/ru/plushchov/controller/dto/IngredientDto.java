@@ -54,6 +54,7 @@ public class IngredientDto {
     public void setId(UUID id) {
         this.id = id;
     }
+    
     /**
      * Метод, возвращающий страну происхождения ингредиента
      * @return origin - страна происхождения
@@ -62,6 +63,7 @@ public class IngredientDto {
         if (origin == null) return "Origin_not_set";
         return origin;
     }
+
     /**
      * Метод, устанавливающий страну происхождения ингредиента
      * @param origin - страна происхождения
@@ -69,6 +71,7 @@ public class IngredientDto {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
+
     /**
      * Метод, возвращающий количество ингредиента
      * @return amount - количество
@@ -76,6 +79,7 @@ public class IngredientDto {
     public BigDecimal getAmount() {
         return amount;
     }
+
     /**
      * Метод, устанавливающий количество ингредиента
      * @param amount - количество
@@ -83,6 +87,7 @@ public class IngredientDto {
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
+
     /**
      * Метод, возвращающий цену ингредиента
      * @return price - цена ингредиента
@@ -90,6 +95,7 @@ public class IngredientDto {
     public BigDecimal getPrice() {
         return price;
     }
+
     /**
      * Метод, устанавливающий цену  ингредиента
      * @param price - цена ингредиента
@@ -97,6 +103,7 @@ public class IngredientDto {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
     /**
      * Метод, возвращающий наименование ингредиента
      * @return name - наименование ингредиента
@@ -104,6 +111,7 @@ public class IngredientDto {
     public String getName() {
         return name;
     }
+
     /**
      * Метод, устанавливающий наименование ингредиента
      * @param name наименование ингредиента

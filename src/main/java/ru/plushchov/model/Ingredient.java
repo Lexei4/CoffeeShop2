@@ -29,7 +29,6 @@ public class Ingredient implements  Identified<UUID>{
      */
     private String name;
 
-
     /**
      * Метод, возвращающий ID ингредиента
       * @return id - id данного ингредиента

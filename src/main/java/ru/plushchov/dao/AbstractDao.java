@@ -59,5 +59,4 @@ public abstract class AbstractDao<T extends Identified<PK>, PK extends Serializa
         }
         return obs;
     }
-
 }

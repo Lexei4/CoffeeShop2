@@ -22,8 +22,6 @@ public class Main {
         IngredientService ingredientService = (IngredientService) context.getBean("ingredientService");
         EquipmentService equipmentService = (EquipmentService) context.getBean("equipmentService");
 
-
-
         Ingredient coffeeBeans = new Ingredient();
         coffeeBeans.setOrigin("Brazil");
         coffeeBeans.setAmount(new BigDecimal("200.00"));
@@ -67,8 +65,5 @@ public class Main {
         cappuccino.setBeveragePrice(new BigDecimal("5.50"));
         cappuccino.setIngredientList(cappuccinoIngredientList);
         cappuccino.setEquipmentList(cappuccinoEquipmentList);
-
-
-
     }
 }

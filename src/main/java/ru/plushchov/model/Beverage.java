@@ -66,7 +66,6 @@ public class Beverage implements Identified<UUID>{
      * Метод, устанавляивающий тип напитка
      * @param beverageType type of Beverage - Capзucсino, Latte, Espresso, Americano etc.
      */
-
     public void setBeverageType(String beverageType) {
         this.beverageType = beverageType;
     }
@@ -87,7 +86,6 @@ public class Beverage implements Identified<UUID>{
     public void setId(UUID beverageId) {
         this.id = beverageId;
     }
-
 
     /**
      * Метод, возвращающий цену напитка
@@ -136,6 +134,4 @@ public class Beverage implements Identified<UUID>{
     public void setIngredientList(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
     }
-
-
 }

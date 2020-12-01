@@ -101,5 +101,4 @@ public class BeverageDto {
     {
         return Objects.hash(beverageType, beveragePrice);
     }
-
 }

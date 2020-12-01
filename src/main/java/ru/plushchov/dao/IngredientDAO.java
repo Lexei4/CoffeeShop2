@@ -34,5 +34,4 @@ public interface IngredientDAO extends GenericDAO<Ingredient, UUID>{
      * Осуществляет поиск ингредиента по имени
      */
     Ingredient findIngredientByName(String name);
-
 }

@@ -8,7 +8,6 @@ import java.util.UUID;
  * Интерфейс для работы с DAO класса Equipment
  */
 public interface EquipmentDAO extends GenericDAO<Equipment, UUID>{
-
     /**
      *
      * @param name - наименование оборудования
@@ -35,6 +34,5 @@ public interface EquipmentDAO extends GenericDAO<Equipment, UUID>{
      * Осуществляет поиск оборудования по имени
      */
     Equipment findEquipmentByName(String name);
-
 }
 

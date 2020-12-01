@@ -22,7 +22,6 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
         return false;
     };
 
-
     public Equipment findEquipmentById(UUID id){
         Equipment equipment = new Equipment();
         for (Equipment el : elements.values()) {
@@ -31,7 +30,6 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
                 equipment.setName(el.getName());
             }
         }
-
         return null;
     };
 

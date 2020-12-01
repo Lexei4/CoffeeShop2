@@ -34,7 +34,6 @@ public class IngredientDAOImpl extends AbstractDao<Ingredient, UUID> implements 
         }
     } 
         return ingredient;
-        
     };
 
     public Ingredient findIngredientByName(String name){

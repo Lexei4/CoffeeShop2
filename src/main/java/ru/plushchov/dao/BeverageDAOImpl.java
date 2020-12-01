@@ -22,8 +22,6 @@ public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements Be
                 beverage.setBeverageType(el.getBeverageType());
                 beverage.setBeveragePrice(el.getBeveragePrice());
                 beverage.setId(el.getId());
-//                beverage.setEquipmentList(el.getEquipmentList());
-//                beverage.setIngredientList(el.getIngredientList());
             }
         }
         return beverage;
@@ -39,5 +37,4 @@ public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements Be
         }
         return null;
     }
-
 }

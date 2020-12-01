@@ -81,5 +81,4 @@ public class EquipmentDto {
 
         return Objects.hash(equipmentName);
     }
-
 }

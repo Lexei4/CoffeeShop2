@@ -14,5 +14,4 @@ public class RepositoryConfig {
 
         return new IngredientDAOImpl();
     }
-
 }

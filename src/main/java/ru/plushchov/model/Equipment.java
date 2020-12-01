@@ -60,5 +60,4 @@ public class Equipment implements  Identified<UUID>{
     public void setId(UUID id) {
         this.id = id;
     }
-
 }

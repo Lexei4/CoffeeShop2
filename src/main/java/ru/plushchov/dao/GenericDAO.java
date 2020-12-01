@@ -47,5 +47,4 @@ public interface GenericDAO<T extends Identified<PK>, PK extends Serializable> {
      * Создает новые записи, соответствующему списку объектов object
      */
     Collection<T> addAll(Collection<T> obs);
-
 }
