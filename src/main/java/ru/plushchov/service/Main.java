@@ -1,9 +1,8 @@
 package ru.plushchov.service;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-import ru.plushchov.config.SpringConfig;
 import ru.plushchov.model.Beverage;
 import ru.plushchov.model.Equipment;
 import ru.plushchov.model.Ingredient;
@@ -18,17 +17,10 @@ public class Main {
     public static void main(String[] args) {
 
         ApplicationContext context =
-                new AnnotationConfigApplicationContext(SpringConfig.class);
+                new ClassPathXmlApplicationContext("spring-context.xml");
 
-        /*
-        1. Create all neseccary equipment
-        2. Lazy initializations of ingredients
-        3. Ready to serve orders
-        master branch
-         */
-
-        IngredientService ingredientService = (IngredientService) context.getBean("ingredientServiceImpl");
-        EquipmentService equipmentService = (EquipmentService) context.getBean("equipmentServiceImpl");
+        IngredientService ingredientService = (IngredientService) context.getBean("ingredientService");
+        EquipmentService equipmentService = (EquipmentService) context.getBean("equipmentService");
 
 
 

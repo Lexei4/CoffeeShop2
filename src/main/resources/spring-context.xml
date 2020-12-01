@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="ingredientDAO" class="ru.plushchov.dao.IngredientDAOImpl">
+    </bean>
+    <bean id="ingredientService" class="ru.plushchov.service.IngredientServiceImpl" autowire="constructor">
+        <constructor-arg index="0" ref="ingredientDAO"/>
+        <!--        <property name="userDAO" ref="userDAO" />-->
+    </bean>
+
+    <bean name="beverageDAO" class="ru.plushchov.dao.BeverageDAOImpl">
+    </bean>
+    <bean id="beverageService" class="ru.plushchov.service.BeverageServiceImpl" autowire="constructor">
+        <constructor-arg index="0" ref="beverageDAO"/>
+        <!--        <property name="userDAO" ref="userDAO" />-->
+    </bean>
+
+    <bean name="equipmentDAO" class="ru.plushchov.dao.EquipmentDAOImpl">
+    </bean>
+    <bean id="equipmentService" class="ru.plushchov.service.EquipmentServiceImpl" autowire="constructor">
+        <constructor-arg index="0" ref="equipmentDAO"/>
+        <!--        <property name="userDAO" ref="userDAO" />-->
+    </bean>
+
+</beans>
