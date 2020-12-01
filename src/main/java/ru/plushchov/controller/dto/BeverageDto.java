@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * Data Transfer Object для напитков
+ */
 public class BeverageDto {
 
     /**
