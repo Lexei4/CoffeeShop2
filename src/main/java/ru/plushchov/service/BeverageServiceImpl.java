@@ -1,13 +1,12 @@
 package ru.plushchov.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import ru.plushchov.dao.BeverageDAO;
 import ru.plushchov.model.Beverage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Service
 @PropertySource(value = {"classpath:application.properties"})
@@ -27,11 +26,6 @@ public class BeverageServiceImpl implements BeverageService{
 
     @Override
     public void addBeverage(Beverage beverage) {
-
-//        if (beverage.getIngredientList().size() >= Integer.valueOf(maxIngredient)){
-//            throw new RuntimeException("A beverage can consist only of maximum " + maxIngredient + " ingredients");
-//        }
-
         beverageDAO.save(beverage);
     }
 
@@ -45,7 +39,6 @@ public class BeverageServiceImpl implements BeverageService{
         beverageDAO.update(beverage);
     }
 
-    @Autowired
     public void setBeverageDAO(BeverageDAO beverageDAO) {
         this.beverageDAO = beverageDAO;
     }

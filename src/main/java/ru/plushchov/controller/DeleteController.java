@@ -2,7 +2,6 @@ package ru.plushchov.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +20,7 @@ public class DeleteController {
 
     private DeleteService deleteService;
 
-    @Autowired
+//    @Autowired
     public DeleteController(DeleteService deleteService) {
         this.deleteService = deleteService;
     }
