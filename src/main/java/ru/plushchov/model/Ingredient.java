@@ -29,6 +29,21 @@ public class Ingredient implements  Identified<UUID>{
      */
     private String name;
 
+    public Ingredient() {
+    }
+
+    public Ingredient(String origin) {
+        this.origin = origin;
+    }
+
+    public Ingredient(UUID id, String origin, BigDecimal amount, BigDecimal price, String name) {
+        this.id = id;
+        this.origin = origin;
+        this.amount = amount;
+        this.price = price;
+        this.name = name;
+    }
+
     /**
      * Метод, возвращающий ID ингредиента
       * @return id - id данного ингредиента
@@ -110,20 +125,6 @@ public class Ingredient implements  Identified<UUID>{
         return name;
     }
 
-    public Ingredient() {
-    }
-
-    public Ingredient(String origin) {
-        this.origin = origin;
-    }
-
-    public Ingredient(UUID id, String origin, BigDecimal amount, BigDecimal price, String name) {
-        this.id = id;
-        this.origin = origin;
-        this.amount = amount;
-        this.price = price;
-        this.name = name;
-    }
 
     @Override
     public String toString() {
