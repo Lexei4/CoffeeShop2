@@ -1,6 +1,8 @@
 package ru.plushchov.service;
 
-import ru.plushchov.model.Equipment;
+import ru.plushchov.controller.dto.EquipmentDto;
+
+import java.util.UUID;
 
 /**
  * Интерфейс для работы с бизнес-логикой класса Equipment
@@ -8,22 +10,23 @@ import ru.plushchov.model.Equipment;
 public interface EquipmentService {
     /**
      *
-     * @param equipment - объект оборудование
+     * @param equipmentDto - объект оборудование
      * добавляет оборудование  в DAO
      */
-    void addEquipment(Equipment equipment);
+    EquipmentDto addEquipment(EquipmentDto equipmentDto);
 
     /**
      *
-     * @param equipment - объект оборудование
-     * удаляет оборудование из  DAO
+     * @param uuid -
      */
-    void deleteEquipment(Equipment equipment);
+    String deleteEquipment(UUID uuid);
 
     /**
      *
-     * @param equipment - объект оборудование
+     * @param  - объект оборудование
      * обновляет оборудование в ДАО
      */
-    void updateEquipment(Equipment equipment);
+    String updateEquipment(EquipmentDto equipmentDto);
+
+    EquipmentDto readEquipment(UUID id);
 }

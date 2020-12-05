@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.plushchov.controller.dto.EquipmentDto;
-import ru.plushchov.service.REST.DeleteService;
-import ru.plushchov.service.REST.RegistrationService;
-import ru.plushchov.service.REST.RequestService;
-import ru.plushchov.service.REST.UpdateService;
+import ru.plushchov.service.EquipmentService;
 
 import java.util.UUID;
 
@@ -21,18 +18,11 @@ import java.util.UUID;
 public class EquipmentController {
     private static final Logger log = LogManager.getLogger(EquipmentController.class.getName());
 
-    private RegistrationService registrationService;
-    private RequestService requestService;
-    private UpdateService updateService;
-    private DeleteService deleteService;
+    private EquipmentService equipmentService;
 
     @Autowired
-    public EquipmentController(RegistrationService registrationService, RequestService requestService,
-                               UpdateService updateService, DeleteService deleteService) {
-        this.registrationService = registrationService;
-        this.requestService = requestService;
-        this.updateService = updateService;
-        this.deleteService = deleteService;
+    public EquipmentController( EquipmentService equipmentService) {
+        this.equipmentService = equipmentService;
     }
 
     @PostMapping
@@ -44,13 +34,14 @@ public class EquipmentController {
             return equipmentDto;
         }
 
-        registrationService.regEquipment(equipmentDto);
+        equipmentService.addEquipment(equipmentDto);
         return equipmentDto;
     }
 
     @GetMapping
     public EquipmentDto equipmentRequestById(@RequestParam UUID id) {
-        return requestService.reqEquipment(id);
+
+        return equipmentService.readEquipment(id);
     }
 
     @PutMapping
@@ -59,13 +50,14 @@ public class EquipmentController {
             equipmentDto.setErrors(result.getAllErrors());
             return equipmentDto;
         }
-        updateService.updateEquipment(equipmentDto);
+        equipmentService.updateEquipment(equipmentDto);
         return equipmentDto;
     }
 
     @DeleteMapping
     public String equipmentDeleteById(@RequestParam UUID id) {
-        return deleteService.deleteEquipment(id);
+
+        return equipmentService.deleteEquipment(id);
     }
 
     /***
