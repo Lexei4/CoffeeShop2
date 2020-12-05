@@ -40,7 +40,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/beverage?id=da7607d9-9586-4e9c-8f32-eaad91bebe18",
+					"raw": "http://localhost:8080/api/beverage?id=d1f23316-3df6-4c42-9355-802b75f9bf4f",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -53,7 +53,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "da7607d9-9586-4e9c-8f32-eaad91bebe18"
+							"value": "d1f23316-3df6-4c42-9355-802b75f9bf4f"
 						}
 					]
 				}
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"id\": \"da7607d9-9586-4e9c-8f32-eaad91bebe18\",\r\n   \"beverageType\": \"Latte\",\r\n   \"beveragePrice\": 10.5\r\n}",
+					"raw": "{\r\n   \"id\": \"d1f23316-3df6-4c42-9355-802b75f9bf4f\",\r\n   \"beverageType\": \"Latte\",\r\n   \"beveragePrice\": 10.5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,7 +95,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/delete/beverage?id=da7607d9-9586-4e9c-8f32-eaad91bebe18",
+					"raw": "http://localhost:8080/api/beverage?id=d1f23316-3df6-4c42-9355-802b75f9bf4f",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -103,13 +103,12 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"delete",
 						"beverage"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "da7607d9-9586-4e9c-8f32-eaad91bebe18"
+							"value": "d1f23316-3df6-4c42-9355-802b75f9bf4f"
 						}
 					]
 				}
@@ -242,7 +241,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/registration/equipment",
+					"raw": "http://localhost:8080/api/equipment",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -250,7 +249,6 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"registration",
 						"equipment"
 					]
 				}
@@ -263,7 +261,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/request/equipment?id=f5a45658-ee40-4d75-8224-9ace18e4d4e7",
+					"raw": "http://localhost:8080/api/equipment?id=f8f5ec33-9022-47fc-be84-b9f0de2f1e9f",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -271,13 +269,12 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"request",
 						"equipment"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "f5a45658-ee40-4d75-8224-9ace18e4d4e7"
+							"value": "f8f5ec33-9022-47fc-be84-b9f0de2f1e9f"
 						}
 					]
 				}
@@ -319,7 +316,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/delete/equipment?id=f5a45658-ee40-4d75-8224-9ace18e4d4e7",
+					"raw": "http://localhost:8080/api/equipment?id=f8f5ec33-9022-47fc-be84-b9f0de2f1e9f",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -327,13 +324,12 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"delete",
 						"equipment"
 					],
 					"query": [
 						{
 							"key": "id",
-							"value": "f5a45658-ee40-4d75-8224-9ace18e4d4e7"
+							"value": "f8f5ec33-9022-47fc-be84-b9f0de2f1e9f"
 						}
 					]
 				}
