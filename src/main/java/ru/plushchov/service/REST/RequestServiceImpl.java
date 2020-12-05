@@ -62,6 +62,7 @@ public class RequestServiceImpl implements  RequestService{
         Equipment equipment = equipmentDAO.findEquipmentById(uuid);
 
         EquipmentDto equipmentDto = new EquipmentDto();
+
         equipmentDto.setEquipmentName(equipment.getName());
         equipmentDto.setId(equipment.getId());
 

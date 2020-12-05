@@ -24,13 +24,14 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
 
     public Equipment findEquipmentById(UUID id){
         Equipment equipment = new Equipment();
+
         for (Equipment el : elements.values()) {
             if (el.getId().equals(id)) {
                 equipment.setId(el.getId());
                 equipment.setName(el.getName());
             }
         }
-        return null;
+        return equipment;
     };
 
     public Equipment findEquipmentByName(String name){

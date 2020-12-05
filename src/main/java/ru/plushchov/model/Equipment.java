@@ -14,26 +14,26 @@ public class Equipment implements  Identified<UUID>{
     /**
      * Наименование оборудования
      */
-    private String name;
+    private String equipmentName;
 
     public Equipment() {
     }
 
-    public Equipment(String name) {
-        this.name = name;
+    public Equipment(String equipmentName) {
+        this.equipmentName = equipmentName;
     }
 
-    public Equipment(UUID id, String name) {
+    public Equipment(UUID id, String equipmentName) {
         this.id = id;
-        this.name = name;
+        this.equipmentName = equipmentName;
     }
 
     /**
      * Метод, устанавливающий наименование оборудования
-     * @param name - наименование оборудования
+     * @param equipmentName - наименование оборудования
      */
-    public void setName(String name){
-        this.name = name;
+    public void setName(String equipmentName){
+        this.equipmentName = equipmentName;
     }
 
     /**
@@ -41,12 +41,12 @@ public class Equipment implements  Identified<UUID>{
      * @return name - наименование оборудования
      */
     public String getName(){
-        return name;
+        return equipmentName;
     }
 
     /**
      * Метод, возвращиющий ID оборудования
-     * @return id - id данношо оборудования
+     * @return id - id данного оборудования
      */
     @Override
     public UUID getId() {
