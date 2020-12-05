@@ -3,6 +3,7 @@ package ru.plushchov.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -45,11 +46,14 @@ public class IngredientController {
                                                                 BindingResult result) {
         if (result.hasErrors()) {
             ingredientDto.setErrors(result.getAllErrors());
-            return new ResponseEntity<>(ingredientDto, HttpStatus.CONFLICT);
+            return new ResponseEntity<>(ingredientDto, HttpStatus.BAD_REQUEST);
         }
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Custom-Header", ingredientDto.getId().toString());
+
         registrationService.regIngredient(ingredientDto);
-        return new ResponseEntity<>(ingredientDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(ingredientDto, headers, HttpStatus.CREATED);
     }
 
     @GetMapping
