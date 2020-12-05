@@ -24,7 +24,7 @@ import java.util.UUID;
 public class IngredientController {
     private static final Logger log = LogManager.getLogger(IngredientController.class.getName());
     /**
-     *  Сервис, отвечающий за общение с DAO слоем
+     * Сервис, отвечающий за общение с DAO слоем
      */
     private IngredientService ingredientService;
     /**
@@ -41,8 +41,9 @@ public class IngredientController {
 
     /**
      * Мапит POST запросы
+     *
      * @param ingredientDto - DTO ингредиента
-     * @param result - результат запроса
+     * @param result        - результат запроса
      * @return
      */
     @PostMapping
@@ -64,6 +65,7 @@ public class IngredientController {
 
     /**
      * мапинг GET - запросов
+     *
      * @param id - id ингредиента, по кторому осуществляется поиск в БД
      * @return
      */
@@ -75,8 +77,9 @@ public class IngredientController {
 
     /**
      * Мапинг update запросов
+     *
      * @param ingredientDto - DTO ингредиента на которую осуществляется замена
-     * @param result - результат запроса
+     * @param result        - результат запроса
      * @return
      */
     @PutMapping
@@ -91,6 +94,7 @@ public class IngredientController {
 
     /**
      * Мапинг DELETE запросов
+     *
      * @param id - id ингредиента для удаления
      * @return
      */
@@ -101,7 +105,8 @@ public class IngredientController {
     }
 
     /**
-     *Связывает конкретный эллемент с конкретной сущностью
+     * Связывает конкретный эллемент с конкретной сущностью
+     *
      * @return IngredientDto
      */
     @ModelAttribute
@@ -111,6 +116,7 @@ public class IngredientController {
 
     /**
      * связывает класс Валидатора с Контроллером
+     *
      * @param binder
      */
     @InitBinder(value = "ingredientDto")

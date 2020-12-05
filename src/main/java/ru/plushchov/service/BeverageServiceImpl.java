@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @Service
 @PropertySource(value = {"classpath:application.properties"})
-public class BeverageServiceImpl implements BeverageService{
+public class BeverageServiceImpl implements BeverageService {
 
     @Value("${beverage.maxIngredients}")
     private String maxIngredient;
@@ -49,7 +49,7 @@ public class BeverageServiceImpl implements BeverageService{
     }
 
     @Override
-    public String updateBeverage(BeverageDto beverageDto){
+    public String updateBeverage(BeverageDto beverageDto) {
 
         Beverage beverageFromDao = beverageDAO.findBeverageById(beverageDto.getId());
 

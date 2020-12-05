@@ -18,19 +18,20 @@ import java.util.UUID;
 public class EquipmentController {
     private static final Logger log = LogManager.getLogger(EquipmentController.class.getName());
     /**
-     *  Сервис, отвечающий за общение с DAO слоем
+     * Сервис, отвечающий за общение с DAO слоем
      */
     private EquipmentService equipmentService;
 
     @Autowired
-    public EquipmentController( EquipmentService equipmentService) {
+    public EquipmentController(EquipmentService equipmentService) {
         this.equipmentService = equipmentService;
     }
 
     /**
      * Мапит POST запросы
+     *
      * @param equipmentDto - DTO ингредиента
-     * @param result - результат запроса
+     * @param result       - результат запроса
      * @return
      */
     @PostMapping
@@ -48,6 +49,7 @@ public class EquipmentController {
 
     /**
      * мапинг GET - запросов
+     *
      * @param id - id оборудования, по кторому осуществляется поиск в БД
      * @return
      */
@@ -59,8 +61,9 @@ public class EquipmentController {
 
     /**
      * Мапинг update запросов
+     *
      * @param equipmentDto - DTO оборудования на которую осуществляется замена
-     * @param result - результат запроса
+     * @param result       - результат запроса
      * @return
      */
     @PutMapping
@@ -75,6 +78,7 @@ public class EquipmentController {
 
     /**
      * Мапинг DELETE запросов
+     *
      * @param id - id оборудования для удаления
      * @return
      */

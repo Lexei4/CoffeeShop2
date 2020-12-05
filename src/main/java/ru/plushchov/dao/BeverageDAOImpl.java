@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 @Repository
-public class   BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
+public class BeverageDAOImpl extends AbstractDao<Beverage, UUID> implements BeverageDAO {
 
     public BeverageDAOImpl() {
         super(Beverage.class, new HashMap<>());

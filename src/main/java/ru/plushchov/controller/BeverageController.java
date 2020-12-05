@@ -18,7 +18,7 @@ import java.util.UUID;
 public class BeverageController {
     private static final Logger log = LogManager.getLogger(BeverageController.class.getName());
     /**
-     *  Сервис, отвечающий за общение с DAO слоем
+     * Сервис, отвечающий за общение с DAO слоем
      */
     private BeverageService beverageService;
 
@@ -29,8 +29,9 @@ public class BeverageController {
 
     /**
      * Мапит POST запросы
+     *
      * @param beverageDto - DTO напитка
-     * @param result - результат запроса
+     * @param result      - результат запроса
      * @return beverageDto с uuid
      */
     @PostMapping
@@ -47,6 +48,7 @@ public class BeverageController {
 
     /**
      * мапинг GET - запросов
+     *
      * @param id - id напитка, по кторому осуществляется поиск в БД
      * @return
      */
@@ -57,8 +59,9 @@ public class BeverageController {
 
     /**
      * Мапинг update запросов
+     *
      * @param beverageDto -  DTO напитка на которую осуществляется замена
-     * @param result - результат запроса
+     * @param result      - результат запроса
      * @return
      */
     @PutMapping
@@ -75,6 +78,7 @@ public class BeverageController {
 
     /**
      * Мапинг DELETE запросов
+     *
      * @param id - id напитка для удаления
      * @return
      */
@@ -85,6 +89,7 @@ public class BeverageController {
 
     /**
      * Связывает конкретный эллемент с конкретной сущностью
+     *
      * @return
      */
     @ModelAttribute

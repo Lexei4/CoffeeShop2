@@ -26,22 +26,22 @@ public class IngredientServiceImpl implements IngredientService {
         log.info("createService");
         this.ingredientDAO = ingredientDAO;
     }
-/**
-addIngridient is a Service method which will only work if price of the ingridient is less than one stipulated in
- the property file
- */
+
+    /**
+     * addIngridient is a Service method which will only work if price of the ingridient is less than one stipulated in
+     * the property file
+     */
     @Override
     public IngredientDto addIngredient(IngredientDto ingredientDto) {
         BigDecimal price = new BigDecimal("200");
 
-        if (ingredientDto.getPrice().compareTo(price) > 0)
-        {
-            throw new RuntimeException("A beverage can consist only of ingredient which maximum price is " + maxIngredientPrice );
+        if (ingredientDto.getPrice().compareTo(price) > 0) {
+            throw new RuntimeException("A beverage can consist only of ingredient which maximum price is " + maxIngredientPrice);
         }
-        log.info("now: " + LocalDateTime.now() +  " IngredientService: " + this.toString());
+        log.info("now: " + LocalDateTime.now() + " IngredientService: " + this.toString());
 
         Ingredient ingredient = new Ingredient(
-                UUID.randomUUID(), ingredientDto.getOrigin(),ingredientDto.getAmount(),
+                UUID.randomUUID(), ingredientDto.getOrigin(), ingredientDto.getAmount(),
                 ingredientDto.getPrice(), ingredientDto.getName()
         );
 

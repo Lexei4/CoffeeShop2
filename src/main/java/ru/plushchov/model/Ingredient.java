@@ -7,7 +7,7 @@ import java.util.UUID;
 /**
  * Класс для работы с ингредиентами в напитках
  */
-public class Ingredient implements  Identified<UUID>{
+public class Ingredient implements Identified<UUID> {
     /**
      * ID ингредиента
      */
@@ -46,7 +46,8 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, возвращающий ID ингредиента
-      * @return id - id данного ингредиента
+     *
+     * @return id - id данного ингредиента
      */
     @Override
     public UUID getId() {
@@ -55,6 +56,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий ID ингредиента
+     *
      * @param id - id данного ингредиента
      */
     public void setId(UUID id) {
@@ -63,6 +65,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, возвращающий страну происхождения ингредиента
+     *
      * @return origin - страна происхождения
      */
     public String getOrigin() {
@@ -71,6 +74,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий страну происхождения ингредиента
+     *
      * @param origin - страна происхождения
      */
     public void setOrigin(String origin) {
@@ -79,6 +83,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, возвращающий количество ингредиента
+     *
      * @return amount - количество
      */
     public BigDecimal getAmount() {
@@ -87,6 +92,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий количество ингредиента
+     *
      * @param amount - количество
      */
     public void setAmount(BigDecimal amount) {
@@ -95,6 +101,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, возвращающий цену ингредиента
+     *
      * @return price - цена ингредиента
      */
     public BigDecimal getPrice() {
@@ -103,6 +110,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий цену  ингредиента
+     *
      * @param price - цена ингредиента
      */
     public void setPrice(BigDecimal price) {
@@ -111,6 +119,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, устанавливающий наименование ингредиента
+     *
      * @param name наименование ингредиента
      */
     public void setName(String name) {
@@ -119,6 +128,7 @@ public class Ingredient implements  Identified<UUID>{
 
     /**
      * Метод, возвращающий наименование ингредиента
+     *
      * @return name - наименование ингредиента
      */
     public String getName() {

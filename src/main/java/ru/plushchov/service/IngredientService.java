@@ -10,14 +10,14 @@ import java.util.UUID;
 public interface IngredientService {
     /**
      * добавляет ингредиент в DAO
+     *
      * @param ingredientDto - DTO ингредиента
      */
     IngredientDto addIngredient(IngredientDto ingredientDto);
 
     /**
-     *
-     * @param uuid  - uuid объекта ингредиент на удаление
-     * удаляет ингредиент из  DAO
+     * @param uuid - uuid объекта ингредиент на удаление
+     *             удаляет ингредиент из  DAO
      */
     String deleteIngredient(UUID uuid);
 
@@ -29,7 +29,8 @@ public interface IngredientService {
     String updateIngredient(IngredientDto ingredientDto);
 
     /**
-     *  читает ингредиент из DAO
+     * читает ингредиент из DAO
+     *
      * @param uuid - id ингредиента
      * @return
      */

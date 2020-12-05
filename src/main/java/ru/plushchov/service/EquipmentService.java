@@ -9,27 +9,27 @@ import java.util.UUID;
  */
 public interface EquipmentService {
     /**
-     *
      * @param equipmentDto - DTO оборудования
-     * добавляет оборудование  в DAO
+     *                     добавляет оборудование  в DAO
      */
     EquipmentDto addEquipment(EquipmentDto equipmentDto);
 
     /**
-     *удаляет объект из DAO
+     * удаляет объект из DAO
+     *
      * @param uuid - id оборудования для удаления
      */
     String deleteEquipment(UUID uuid);
 
     /**
-     *
-     * @param  - объект оборудование
-     * обновляет оборудование в ДАО
+     * @param - объект оборудование
+     *          обновляет оборудование в ДАО
      */
     String updateEquipment(EquipmentDto equipmentDto);
 
     /**
      * Получает DTO оборудования из DAO
+     *
      * @param id - id оборудования
      * @return
      */

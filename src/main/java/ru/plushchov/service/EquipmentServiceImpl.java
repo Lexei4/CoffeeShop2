@@ -10,7 +10,7 @@ import ru.plushchov.model.Equipment;
 import java.util.UUID;
 
 @Service
-public class EquipmentServiceImpl implements  EquipmentService{
+public class EquipmentServiceImpl implements EquipmentService {
     private static final Logger log = LogManager.getLogger(EquipmentServiceImpl.class.getName());
     private EquipmentDAO equipmentDAO;
 

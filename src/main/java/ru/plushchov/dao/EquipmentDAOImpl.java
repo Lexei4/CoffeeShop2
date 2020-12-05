@@ -13,16 +13,18 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
         super(Equipment.class, new HashMap<>());
     }
 
-    public boolean equipmentExist(String name){
+    public boolean equipmentExist(String name) {
         for (Equipment el : elements.values()) {
             if (el.getName().equals(name)) {
                 return true;
             }
         }
         return false;
-    };
+    }
 
-    public Equipment findEquipmentById(UUID id){
+    ;
+
+    public Equipment findEquipmentById(UUID id) {
         Equipment equipment = new Equipment();
 
         for (Equipment el : elements.values()) {
@@ -32,14 +34,18 @@ public class EquipmentDAOImpl extends AbstractDao<Equipment, UUID> implements Eq
             }
         }
         return equipment;
-    };
+    }
 
-    public Equipment findEquipmentByName(String name){
+    ;
+
+    public Equipment findEquipmentByName(String name) {
         for (Equipment el : elements.values()) {
             if (el.getName().equals(name)) {
                 return el;
             }
         }
         return null;
-    };
+    }
+
+    ;
 }

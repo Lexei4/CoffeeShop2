@@ -33,7 +33,7 @@ public class IngredientDtoValidator implements Validator {
 
         if (userForm.getName().isEmpty()) {
             logger.error("ingredientname is empty");
-                String message = messageSource.getMessage("name.empty", new Object[]{}, Locale.getDefault());
+            String message = messageSource.getMessage("name.empty", new Object[]{}, Locale.getDefault());
             errors.rejectValue("ingredientName", "name.empty", message);
         }
 
