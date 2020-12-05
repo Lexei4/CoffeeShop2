@@ -19,6 +19,9 @@ import ru.plushchov.validator.IngredientDtoValidator;
 
 import java.util.UUID;
 
+/**
+ * REST - контроллер, обрабатыващий CRUD запросы к сущности ingredient
+ */
 @RestController
 @RequestMapping("/api/ingredient")
 public class IngredientController {

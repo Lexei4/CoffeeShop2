@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.plushchov.controller.dto.BeverageDto;
-import ru.plushchov.service.REST.DeleteService;
-import ru.plushchov.service.REST.RegistrationService;
-import ru.plushchov.service.REST.RequestService;
-import ru.plushchov.service.REST.UpdateService;
+import ru.plushchov.service.BeverageService;
 
 import java.util.UUID;
 
@@ -21,18 +18,11 @@ import java.util.UUID;
 public class BeverageController {
     private static final Logger log = LogManager.getLogger(BeverageController.class.getName());
 
-    private RegistrationService registrationService;
-    private RequestService requestService;
-    private UpdateService updateService;
-    private DeleteService deleteService;
+    private BeverageService beverageService;
 
     @Autowired
-    public BeverageController(RegistrationService registrationService, RequestService requestService,
-                              UpdateService updateService, DeleteService deleteService) {
-        this.registrationService = registrationService;
-        this.requestService = requestService;
-        this.updateService = updateService;
-        this.deleteService = deleteService;
+    public BeverageController(BeverageService beverageService) {
+        this.beverageService = beverageService;
     }
     @PostMapping
     public BeverageDto beverageRegistration(@RequestBody BeverageDto beverageDto, BindingResult result) {
@@ -42,14 +32,14 @@ public class BeverageController {
             return beverageDto;
         }
 
-        registrationService.regBeverage(beverageDto);
+        beverageService.addBeverage(beverageDto);
         return beverageDto;
     }
 
 
     @GetMapping
     public BeverageDto beverageRequestById(@RequestParam UUID id) {
-        return requestService.reqBeverage(id);
+        return beverageService.readBeverage(id);
     }
 
     @PutMapping
@@ -60,13 +50,13 @@ public class BeverageController {
             return beverageDto;
         }
 
-        updateService.updateBeverage(beverageDto);
+        beverageService.updateBeverage(beverageDto);
         return beverageDto;
     }
 
     @DeleteMapping
     public String beverageDeleteById(@RequestParam UUID id) {
-        return deleteService.deleteBeverage(id);
+        return beverageService.deleteBeverage(id);
     }
 
     @ModelAttribute

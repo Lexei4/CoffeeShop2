@@ -13,6 +13,9 @@ import ru.plushchov.service.REST.UpdateService;
 
 import java.util.UUID;
 
+/**
+ * REST - контроллер, обрабатыващий CRUD запросы к сущности beverage
+ */
 @RestController
 @RequestMapping("/api/equipment")
 public class EquipmentController {

@@ -1,6 +1,8 @@
 package ru.plushchov.service;
 
-import ru.plushchov.model.Beverage;
+import ru.plushchov.controller.dto.BeverageDto;
+
+import java.util.UUID;
 
 /**
  * Интерфейс для работы с бизнес-логикой класса Beverage
@@ -8,22 +10,24 @@ import ru.plushchov.model.Beverage;
 public interface BeverageService {
     /**
      *
-     * @param beverage - объект напиток
+     * @param beverageDto - объект напиток
      * добавляет напиток  в DAO
      */
-    void addBeverage(Beverage beverage);
+    BeverageDto addBeverage(BeverageDto beverageDto);
 
     /**
      *
-     * @param beverage - объект напиток
+     * @param id - объект напиток
      * удаляет напиток из  DAO
      */
-    void deleteBeverage(Beverage beverage);
+    String deleteBeverage(UUID id);
 
     /**
      *
-     * @param beverage -  объект напиток
+     * @param beverageDto -  объект напиток
      * обновляет напиток в ДАО
      */
-    void updateBeverage(Beverage beverage);
+    String updateBeverage(BeverageDto beverageDto);
+
+    BeverageDto readBeverage(UUID uuid);
 }
