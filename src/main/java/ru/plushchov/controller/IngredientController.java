@@ -23,8 +23,13 @@ import java.util.UUID;
 @RequestMapping("/api/ingredient")
 public class IngredientController {
     private static final Logger log = LogManager.getLogger(IngredientController.class.getName());
-
+    /**
+     *  Сервис, отвечающий за общение с DAO слоем
+     */
     private IngredientService ingredientService;
+    /**
+     * Валидатор
+     */
     private IngredientDtoValidator ingredientDtoValidator;
 
     @Autowired
@@ -34,6 +39,12 @@ public class IngredientController {
         this.ingredientDtoValidator = ingredientDtoValidator;
     }
 
+    /**
+     * Мапит POST запросы
+     * @param ingredientDto - DTO ингредиента
+     * @param result - результат запроса
+     * @return
+     */
     @PostMapping
     public ResponseEntity<IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto,
                                                                 BindingResult result) {
@@ -51,12 +62,23 @@ public class IngredientController {
         return new ResponseEntity<>(ingredientDto, headers, HttpStatus.CREATED);
     }
 
+    /**
+     * мапинг GET - запросов
+     * @param id - id ингредиента, по кторому осуществляется поиск в БД
+     * @return
+     */
     @GetMapping
     public IngredientDto ingredientRequestById(@RequestParam UUID id) {
 
         return ingredientService.readIngredient(id);
     }
 
+    /**
+     * Мапинг update запросов
+     * @param ingredientDto - DTO ингредиента на которую осуществляется замена
+     * @param result - результат запроса
+     * @return
+     */
     @PutMapping
     public String ingredientUpdate(@RequestBody IngredientDto ingredientDto, BindingResult result) {
 
@@ -67,23 +89,32 @@ public class IngredientController {
         return ingredientService.updateIngredient(ingredientDto);
     }
 
+    /**
+     * Мапинг DELETE запросов
+     * @param id - id ингредиента для удаления
+     * @return
+     */
     @DeleteMapping
     public String ingredientDeleteById(@RequestParam UUID id) {
 
         return ingredientService.deleteIngredient(id);
     }
 
+    /**
+     *Связывает конкретный эллемент с конкретной сущностью
+     * @return IngredientDto
+     */
     @ModelAttribute
-    /*Связывает конкретный эллемент с конкретной сущностью*/
     public IngredientDto ingredientDto() {
-
         return new IngredientDto();
     }
 
+    /**
+     * связывает класс Валидатора с Контроллером
+     * @param binder
+     */
     @InitBinder(value = "ingredientDto")
-    /*связывает класс Валидатора с Контроллером*/
     private void initBinder(WebDataBinder binder) {
-
         binder.setValidator(ingredientDtoValidator);
     }
 }

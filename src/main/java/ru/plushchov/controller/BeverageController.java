@@ -17,13 +17,22 @@ import java.util.UUID;
 @RequestMapping("/api/beverage")
 public class BeverageController {
     private static final Logger log = LogManager.getLogger(BeverageController.class.getName());
-
+    /**
+     *  Сервис, отвечающий за общение с DAO слоем
+     */
     private BeverageService beverageService;
 
     @Autowired
     public BeverageController(BeverageService beverageService) {
         this.beverageService = beverageService;
     }
+
+    /**
+     * Мапит POST запросы
+     * @param beverageDto - DTO напитка
+     * @param result - результат запроса
+     * @return beverageDto с uuid
+     */
     @PostMapping
     public BeverageDto beverageRegistration(@RequestBody BeverageDto beverageDto, BindingResult result) {
 
@@ -36,12 +45,22 @@ public class BeverageController {
         return beverageDto;
     }
 
-
+    /**
+     * мапинг GET - запросов
+     * @param id - id напитка, по кторому осуществляется поиск в БД
+     * @return
+     */
     @GetMapping
     public BeverageDto beverageRequestById(@RequestParam UUID id) {
         return beverageService.readBeverage(id);
     }
 
+    /**
+     * Мапинг update запросов
+     * @param beverageDto -  DTO напитка на которую осуществляется замена
+     * @param result - результат запроса
+     * @return
+     */
     @PutMapping
     public BeverageDto beverageUpdate(@RequestBody BeverageDto beverageDto, BindingResult result) {
 
@@ -54,13 +73,21 @@ public class BeverageController {
         return beverageDto;
     }
 
+    /**
+     * Мапинг DELETE запросов
+     * @param id - id напитка для удаления
+     * @return
+     */
     @DeleteMapping
     public String beverageDeleteById(@RequestParam UUID id) {
         return beverageService.deleteBeverage(id);
     }
 
+    /**
+     * Связывает конкретный эллемент с конкретной сущностью
+     * @return
+     */
     @ModelAttribute
-    /*Связывает конкретный эллемент с конкретной сущностью*/
     public BeverageDto beverageDto() {
         return new BeverageDto();
     }

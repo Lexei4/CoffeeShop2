@@ -17,7 +17,9 @@ import java.util.UUID;
 @RequestMapping("/api/equipment")
 public class EquipmentController {
     private static final Logger log = LogManager.getLogger(EquipmentController.class.getName());
-
+    /**
+     *  Сервис, отвечающий за общение с DAO слоем
+     */
     private EquipmentService equipmentService;
 
     @Autowired
@@ -25,6 +27,12 @@ public class EquipmentController {
         this.equipmentService = equipmentService;
     }
 
+    /**
+     * Мапит POST запросы
+     * @param equipmentDto - DTO ингредиента
+     * @param result - результат запроса
+     * @return
+     */
     @PostMapping
     public EquipmentDto equipmentRegistration(@RequestBody EquipmentDto equipmentDto,
                                               BindingResult result) {
@@ -38,12 +46,23 @@ public class EquipmentController {
         return equipmentDto;
     }
 
+    /**
+     * мапинг GET - запросов
+     * @param id - id оборудования, по кторому осуществляется поиск в БД
+     * @return
+     */
     @GetMapping
     public EquipmentDto equipmentRequestById(@RequestParam UUID id) {
 
         return equipmentService.readEquipment(id);
     }
 
+    /**
+     * Мапинг update запросов
+     * @param equipmentDto - DTO оборудования на которую осуществляется замена
+     * @param result - результат запроса
+     * @return
+     */
     @PutMapping
     public EquipmentDto equipmentUpdate(@RequestBody EquipmentDto equipmentDto, BindingResult result) {
         if (result.hasErrors()) {
@@ -54,6 +73,11 @@ public class EquipmentController {
         return equipmentDto;
     }
 
+    /**
+     * Мапинг DELETE запросов
+     * @param id - id оборудования для удаления
+     * @return
+     */
     @DeleteMapping
     public String equipmentDeleteById(@RequestParam UUID id) {
 

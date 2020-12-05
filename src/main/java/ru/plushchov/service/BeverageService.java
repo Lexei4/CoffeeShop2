@@ -10,14 +10,14 @@ import java.util.UUID;
 public interface BeverageService {
     /**
      *
-     * @param beverageDto - объект напиток
+     * @param beverageDto - DTO напитка
      * добавляет напиток  в DAO
      */
     BeverageDto addBeverage(BeverageDto beverageDto);
 
     /**
      *
-     * @param id - объект напиток
+     * @param id - id напиток
      * удаляет напиток из  DAO
      */
     String deleteBeverage(UUID id);
@@ -29,5 +29,10 @@ public interface BeverageService {
      */
     String updateBeverage(BeverageDto beverageDto);
 
+    /**
+     * запрос напитка в БД
+     * @param uuid - UUID напитка
+     * @return
+     */
     BeverageDto readBeverage(UUID uuid);
 }
