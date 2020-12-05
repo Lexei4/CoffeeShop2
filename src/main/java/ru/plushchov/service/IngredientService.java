@@ -1,31 +1,33 @@
 package ru.plushchov.service;
 
-import ru.plushchov.model.Ingredient;
+import ru.plushchov.controller.dto.IngredientDto;
+
+import java.util.UUID;
 
 /**
  * Интерфейс для работы с бизнес-логикой класса Ingredient
  */
 public interface IngredientService {
     /**
-     *
-     * @param ingredient - объект ингредиент
-     *
      * добавляет ингредиент в DAO
+     * @param ingredientDto - DTO ингредиентf
      */
-    void addIngredient(Ingredient ingredient);
+    IngredientDto addIngredient(IngredientDto ingredientDto);
 
     /**
      *
-     * @param ingredient  - объект ингредиент
+     * @param uuid  - uuid объекта ингредиент на удаление
      * удаляет ингредиент из  DAO
      */
-    void deleteIngredient(Ingredient ingredient);
+    String deleteIngredient(UUID uuid);
 
     /***
      *
-     * @param ingredient  - объект ингредиент
+     * @param ingredientDto  - DTO ингредиента
      * обновляет ингредиент в ДАО
      */
-    void updateIngredient(Ingredient ingredient);
+    String updateIngredient(IngredientDto ingredientDto);
+
+    IngredientDto readIngredient(UUID uuid);
 }
 

@@ -11,10 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import ru.plushchov.controller.dto.IngredientDto;
-import ru.plushchov.service.REST.DeleteService;
-import ru.plushchov.service.REST.RegistrationService;
-import ru.plushchov.service.REST.RequestService;
-import ru.plushchov.service.REST.UpdateService;
+import ru.plushchov.service.IngredientService;
 import ru.plushchov.validator.IngredientDtoValidator;
 
 import java.util.UUID;
@@ -27,20 +24,13 @@ import java.util.UUID;
 public class IngredientController {
     private static final Logger log = LogManager.getLogger(IngredientController.class.getName());
 
-    private RegistrationService registrationService;
-    private RequestService requestService;
-    private UpdateService updateService;
-    private DeleteService deleteService;
+    private IngredientService ingredientService;
     private IngredientDtoValidator ingredientDtoValidator;
 
     @Autowired
-    public IngredientController(RegistrationService registrationService, RequestService requestService,
-                                UpdateService updateService, DeleteService deleteService,
+    public IngredientController(IngredientService ingredientService,
                                 IngredientDtoValidator ingredientDtoValidator) {
-        this.registrationService = registrationService;
-        this.requestService = requestService;
-        this.updateService = updateService;
-        this.deleteService = deleteService;
+        this.ingredientService = ingredientService;
         this.ingredientDtoValidator = ingredientDtoValidator;
     }
 
@@ -52,16 +42,19 @@ public class IngredientController {
             return new ResponseEntity<>(ingredientDto, HttpStatus.BAD_REQUEST);
         }
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Custom-Header", ingredientDto.getId().toString());
+        ingredientService.addIngredient(ingredientDto);
 
-        registrationService.regIngredient(ingredientDto);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("UUID of the registered ingredient",
+                ingredientDto.getId().toString());
+
         return new ResponseEntity<>(ingredientDto, headers, HttpStatus.CREATED);
     }
 
     @GetMapping
     public IngredientDto ingredientRequestById(@RequestParam UUID id) {
-        return requestService.reqIngredient(id);
+
+        return ingredientService.readIngredient(id);
     }
 
     @PutMapping
@@ -71,12 +64,13 @@ public class IngredientController {
             ingredientDto.setErrors(result.getAllErrors());
             return ingredientDto.getErrors().toString();
         }
-        return updateService.updateIngredient(ingredientDto);
+        return ingredientService.updateIngredient(ingredientDto);
     }
 
     @DeleteMapping
     public String ingredientDeleteById(@RequestParam UUID id) {
-        return deleteService.deleteIngredient(id);
+
+        return ingredientService.deleteIngredient(id);
     }
 
     @ModelAttribute

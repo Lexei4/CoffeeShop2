@@ -3,9 +3,9 @@ package ru.plushchov.service;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
+import ru.plushchov.controller.dto.EquipmentDto;
+import ru.plushchov.controller.dto.IngredientDto;
 import ru.plushchov.model.Beverage;
-import ru.plushchov.model.Equipment;
-import ru.plushchov.model.Ingredient;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class Main {
         IngredientService ingredientService = (IngredientService) context.getBean("ingredientService");
         EquipmentService equipmentService = (EquipmentService) context.getBean("equipmentService");
 
-        Ingredient coffeeBeans = new Ingredient();
+        IngredientDto coffeeBeans = new IngredientDto();
         coffeeBeans.setOrigin("Brazil");
         coffeeBeans.setAmount(new BigDecimal("200.00"));
         coffeeBeans.setId(UUID.randomUUID());
@@ -30,7 +30,7 @@ public class Main {
 
         ingredientService.addIngredient(coffeeBeans);
 
-        Ingredient milk = new Ingredient();
+        IngredientDto milk = new IngredientDto();
         milk.setOrigin("Russia");
         milk.setAmount(new BigDecimal("10.00"));
         milk.setId(UUID.randomUUID());
@@ -44,15 +44,15 @@ public class Main {
         cappuccinoIngredientList.add(milk);
 
 
-        Equipment coffeeMachine = new Equipment();
+        EquipmentDto coffeeMachine = new EquipmentDto();
         coffeeMachine.setId(UUID.randomUUID());
-        coffeeMachine.setName("Marzoka coffeeMachine");
+        coffeeMachine.setEquipmentName("Marzoka coffeeMachine");
 
         equipmentService.addEquipment(coffeeMachine);
 
-        Equipment grinder = new Equipment();
+        EquipmentDto grinder = new EquipmentDto();
         grinder.setId(UUID.randomUUID());
-        grinder.setName("Simonelli mythos grinder");
+        grinder.setEquipmentName("Simonelli mythos grinder");
 
         equipmentService.addEquipment(grinder);
 
