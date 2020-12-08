@@ -2,7 +2,6 @@ package ru.plushchov.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.plushchov.controller.dto.BeverageDto;
@@ -22,7 +21,6 @@ public class BeverageController {
      */
     private BeverageService beverageService;
 
-    @Autowired
     public BeverageController(BeverageService beverageService) {
         this.beverageService = beverageService;
     }
