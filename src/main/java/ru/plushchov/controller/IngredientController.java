@@ -67,8 +67,8 @@ public class IngredientController {
      * @param id - id ингредиента, по кторому осуществляется поиск в БД
      * @return
      */
-    @GetMapping
-    public IngredientDto ingredientRequestById(@RequestParam UUID id) {
+    @GetMapping("{id}")
+    public IngredientDto ingredientRequestById(@PathVariable UUID id) {
 
         return ingredientService.readIngredient(id);
     }
@@ -96,8 +96,8 @@ public class IngredientController {
      * @param id - id ингредиента для удаления
      * @return
      */
-    @DeleteMapping
-    public String ingredientDeleteById(@RequestParam UUID id) {
+    @DeleteMapping("{id}")
+    public String ingredientDeleteById(@PathVariable UUID id) {
 
         return ingredientService.deleteIngredient(id);
     }

@@ -50,8 +50,8 @@ public class BeverageController {
      * @param id - id напитка, по кторому осуществляется поиск в БД
      * @return
      */
-    @GetMapping
-    public BeverageDto beverageRequestById(@RequestParam UUID id) {
+    @GetMapping("{id}")
+    public BeverageDto beverageRequestById(@PathVariable UUID id) {
         return beverageService.readBeverage(id);
     }
 
@@ -80,8 +80,8 @@ public class BeverageController {
      * @param id - id напитка для удаления
      * @return
      */
-    @DeleteMapping
-    public String beverageDeleteById(@RequestParam UUID id) {
+    @DeleteMapping("{id}")
+    public String beverageDeleteById(@PathVariable UUID id) {
         return beverageService.deleteBeverage(id);
     }
 

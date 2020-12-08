@@ -51,8 +51,8 @@ public class EquipmentController {
      * @param id - id оборудования, по кторому осуществляется поиск в БД
      * @return
      */
-    @GetMapping
-    public EquipmentDto equipmentRequestById(@RequestParam UUID id) {
+    @GetMapping("{id}")
+    public EquipmentDto equipmentRequestById(@PathVariable UUID id) {
 
         return equipmentService.readEquipment(id);
     }
@@ -80,8 +80,8 @@ public class EquipmentController {
      * @param id - id оборудования для удаления
      * @return
      */
-    @DeleteMapping
-    public String equipmentDeleteById(@RequestParam UUID id) {
+    @DeleteMapping("{id}")
+    public String equipmentDeleteById(@PathVariable UUID id) {
 
         return equipmentService.deleteEquipment(id);
     }
