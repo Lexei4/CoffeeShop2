@@ -21,10 +21,13 @@ public interface BeverageService {
     String deleteBeverage(UUID id);
 
     /**
-     * @param beverageDto -  объект напиток
-     *                    обновляет напиток в ДАО
+     * обновляет напиток в ДАО
+     * @param beverageDto - объект напиток
+     * @param id - UUID напитка
+     * @return
      */
-    String updateBeverage(BeverageDto beverageDto);
+    BeverageDto updateBeverage(BeverageDto beverageDto, UUID id);
+
 
     /**
      * запрос напитка в БД
