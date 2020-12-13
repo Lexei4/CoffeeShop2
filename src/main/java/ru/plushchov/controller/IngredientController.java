@@ -2,13 +2,12 @@ package ru.plushchov.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 import ru.plushchov.controller.dto.IngredientDto;
 import ru.plushchov.service.IngredientService;
 import ru.plushchov.validator.IngredientDtoValidator;
@@ -41,24 +40,18 @@ public class IngredientController {
      * Мапит POST запросы
      *
      * @param ingredientDto - DTO ингредиента
-     * @param result        - результат запроса
+     * @param         - результат запроса
      * @return
      */
     @PostMapping
     public ResponseEntity<IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto,
-                                                                BindingResult result) {
-        if (result.hasErrors()) {
-            ingredientDto.setErrors(result.getAllErrors());
-            return new ResponseEntity<>(ingredientDto, HttpStatus.BAD_REQUEST);
-        }
+                                                                UriComponentsBuilder componentsBuilder) {
 
-        ingredientService.addIngredient(ingredientDto);
+        var result =  ingredientService.addIngredient(ingredientDto);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("UUID of the registered ingredient",
-                ingredientDto.getId().toString());
+        var uri = componentsBuilder.path("/api/ingredient/" + result.getId()).buildAndExpand(result).toUri();
+        return ResponseEntity.created(uri).body(result);
 
-        return new ResponseEntity<>(ingredientDto, headers, HttpStatus.CREATED);
     }
 
     /**
