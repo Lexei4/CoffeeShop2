@@ -2,13 +2,11 @@ package ru.plushchov.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 import ru.plushchov.controller.dto.IngredientDto;
 import ru.plushchov.service.IngredientService;
 import ru.plushchov.validator.IngredientDtoValidator;
@@ -41,31 +39,25 @@ public class IngredientController {
      * Мапит POST запросы
      *
      * @param ingredientDto - DTO ингредиента
-     * @param result        - результат запроса
-     * @return
+     * @param         - результат запроса
+     * @return ResponseEntity, статус Created
      */
     @PostMapping
     public ResponseEntity<IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto,
-                                                                BindingResult result) {
-        if (result.hasErrors()) {
-            ingredientDto.setErrors(result.getAllErrors());
-            return new ResponseEntity<>(ingredientDto, HttpStatus.BAD_REQUEST);
-        }
+                                                                UriComponentsBuilder componentsBuilder) {
 
-        ingredientService.addIngredient(ingredientDto);
+        var result =  ingredientService.addIngredient(ingredientDto);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("UUID of the registered ingredient",
-                ingredientDto.getId().toString());
+        var uri = componentsBuilder.path("/api/ingredient/" + result.getId()).buildAndExpand(result).toUri();
+        return ResponseEntity.created(uri).body(result);
 
-        return new ResponseEntity<>(ingredientDto, headers, HttpStatus.CREATED);
     }
 
     /**
      * мапинг GET - запросов
      *
      * @param id - id ингредиента, по кторому осуществляется поиск в БД
-     * @return
+     * @return IngredientDto
      */
     @GetMapping("{id}")
     public IngredientDto ingredientRequestById(@PathVariable UUID id) {
@@ -76,25 +68,29 @@ public class IngredientController {
     /**
      * Мапинг update запросов
      *
+     * @param id - id ингредиента на которую осуществляется замена
      * @param ingredientDto - DTO ингредиента на которую осуществляется замена
-     * @param result        - результат запроса
-     * @return
+     * @param componentsBuilder - переменная для возврата корректного ответа
+     * @return ResponseEntity. Статус зависит от наличия тела сообщения в PUT запросе
      */
-    @PutMapping
-    public String ingredientUpdate(@RequestBody IngredientDto ingredientDto, BindingResult result) {
+    @PutMapping("{id}")
+    public ResponseEntity<IngredientDto> ingredientUpdate(@PathVariable UUID id, @RequestBody(required = false)  IngredientDto ingredientDto, UriComponentsBuilder componentsBuilder) {
 
-        if (result.hasErrors()) {
-            ingredientDto.setErrors(result.getAllErrors());
-            return ingredientDto.getErrors().toString();
+        var result = ingredientService.updateIngredient(ingredientDto, id);
+        var uri = componentsBuilder.path("/api/ingredient/" + result.getId()).buildAndExpand(result).toUri();
+        if (ingredientDto == null){
+            return ResponseEntity.created(uri).body(result);
         }
-        return ingredientService.updateIngredient(ingredientDto);
+        else {
+            return ResponseEntity.ok().body(result);
+        }
     }
 
     /**
      * Мапинг DELETE запросов
      *
      * @param id - id ингредиента для удаления
-     * @return
+     * @return String "ингредиент удален"
      */
     @DeleteMapping("{id}")
     public String ingredientDeleteById(@PathVariable UUID id) {

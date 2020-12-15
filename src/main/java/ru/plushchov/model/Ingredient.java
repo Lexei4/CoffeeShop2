@@ -7,7 +7,7 @@ import java.util.UUID;
 /**
  * Класс для работы с ингредиентами в напитках
  */
-public class Ingredient implements Identified<UUID> {
+public class    Ingredient implements Identified<UUID> {
     /**
      * ID ингредиента
      */

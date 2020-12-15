@@ -8,29 +8,33 @@ import java.util.UUID;
  * Интерфейс для работы с бизнес-логикой класса Beverage
  */
 public interface BeverageService {
+
     /**
+     * добавляет напиток  в DAO
      * @param beverageDto - DTO напитка
-     *                    добавляет напиток  в DAO
+     * @return beverageDto с проставленным id
      */
     BeverageDto addBeverage(BeverageDto beverageDto);
 
     /**
+     *  удаляет напиток из  DAO
      * @param id - id напиток
-     *           удаляет напиток из  DAO
+     * @return String - напиток удален
      */
     String deleteBeverage(UUID id);
 
     /**
-     * @param beverageDto -  объект напиток
-     *                    обновляет напиток в ДАО
+     * обновляет напиток в ДАО
+     * @param beverageDto - объект напиток
+     * @param id - UUID напитка
+     * @return BeverageDto - обновленный Dto
      */
-    String updateBeverage(BeverageDto beverageDto);
+    BeverageDto updateBeverage(BeverageDto beverageDto, UUID id);
 
     /**
      * запрос напитка в БД
-     *
      * @param uuid - UUID напитка
-     * @return
+     * @return BeverageDto по данному UUID
      */
     BeverageDto readBeverage(UUID uuid);
 }

@@ -49,22 +49,36 @@ public class BeverageServiceImpl implements BeverageService {
     }
 
     @Override
-    public String updateBeverage(BeverageDto beverageDto) {
+    public BeverageDto updateBeverage(BeverageDto beverageDto, UUID id) {
 
-        Beverage beverageFromDao = beverageDAO.findBeverageById(beverageDto.getId());
+        if (beverageDto == null){
+            BeverageDto beverageDtoNew = new BeverageDto();
 
-        beverageDAO.deleteByPK(beverageDto.getId());
+            Beverage beverage = new Beverage(
+                    id, "typeNeedsToBeSetUp", null
+            );
 
-        beverageFromDao.setId(beverageDto.getId());
-        beverageFromDao.setBeveragePrice(beverageDto.getBeveragePrice());
-        beverageFromDao.setBeverageType(beverageDto.getBeverageType());
+            beverageDAO.save(beverage);
+            beverageDtoNew.setId(id);
+            beverageDtoNew.setBeveragePrice(beverage.getBeveragePrice());
+            beverageDtoNew.setBeverageType(beverage.getBeverageType());
+            return beverageDtoNew;
+        }
+        Beverage beverageFromDao = beverageDAO.findBeverageById(id);
 
-        beverageDAO.save(beverageFromDao);
 
-        String response = "Beverage has been updated" + beverageDto.toString();
+            beverageDAO.deleteByPK(id);
 
-        return response;
+            beverageFromDao.setId(beverageDto.getId());
+            beverageFromDao.setBeveragePrice(beverageDto.getBeveragePrice());
+            beverageFromDao.setBeverageType(beverageDto.getBeverageType());
+
+            beverageDAO.save(beverageFromDao);
+
+            return beverageDto;
+
     }
+
 
     @Override
     public BeverageDto readBeverage(UUID uuid) {

@@ -2,8 +2,9 @@ package ru.plushchov.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.validation.BindingResult;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 import ru.plushchov.controller.dto.BeverageDto;
 import ru.plushchov.service.BeverageService;
 
@@ -27,58 +28,57 @@ public class BeverageController {
 
     /**
      * Мапит POST запросы
-     *
      * @param beverageDto - DTO напитка
-     * @param result      - результат запроса
-     * @return beverageDto с uuid
+     * @param componentsBuilder - эллемент для составления ответа
+     * @return ResponseEntity со статусом created
      */
     @PostMapping
-    public BeverageDto beverageRegistration(@RequestBody BeverageDto beverageDto, BindingResult result) {
+    public ResponseEntity<BeverageDto> beverageRegistration(@RequestBody BeverageDto beverageDto, UriComponentsBuilder componentsBuilder) {
 
-        if (result.hasErrors()) {
-            beverageDto.setErrors(result.getAllErrors());
-            return beverageDto;
-        }
-
-        beverageService.addBeverage(beverageDto);
-        return beverageDto;
+        var result = beverageService.addBeverage(beverageDto);
+        var uri = componentsBuilder.path("/api/beverage/" + result.getId()).buildAndExpand(result).toUri();
+        return ResponseEntity.created(uri).body(result);
     }
+
 
     /**
      * мапинг GET - запросов
      *
      * @param id - id напитка, по кторому осуществляется поиск в БД
-     * @return
+     * @return BeverageDto
      */
     @GetMapping("{id}")
     public BeverageDto beverageRequestById(@PathVariable UUID id) {
+
         return beverageService.readBeverage(id);
     }
 
     /**
      * Мапинг update запросов
      *
+     * @param id - id напитка
      * @param beverageDto -  DTO напитка на которую осуществляется замена
-     * @param result      - результат запроса
-     * @return
+     * @param componentsBuilder - переменная для возврата корректного ответа
+     * @return ReaponseEntity со статусом 200
      */
-    @PutMapping
-    public BeverageDto beverageUpdate(@RequestBody BeverageDto beverageDto, BindingResult result) {
+    @PutMapping("{id}")
+    public ResponseEntity<BeverageDto> beverageUpdate(@PathVariable UUID id, @RequestBody(required = false) BeverageDto beverageDto, UriComponentsBuilder componentsBuilder) {
 
-        if (result.hasErrors()) {
-            beverageDto.setErrors(result.getAllErrors());
-            return beverageDto;
-        }
-
-        beverageService.updateBeverage(beverageDto);
-        return beverageDto;
+       var result = beverageService.updateBeverage(beverageDto, id);
+       var uri = componentsBuilder.path("/api/beverage/" + result.getId()).buildAndExpand(result).toUri();
+       if (beverageDto == null){
+           return ResponseEntity.created(uri).body(result);
+       }
+           else {
+           return ResponseEntity.ok().body(result);
+       }
     }
 
     /**
      * Мапинг DELETE запросов
      *
      * @param id - id напитка для удаления
-     * @return
+     * @return String "напиток удален"
      */
     @DeleteMapping("{id}")
     public String beverageDeleteById(@PathVariable UUID id) {

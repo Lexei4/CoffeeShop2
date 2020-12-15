@@ -62,9 +62,26 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public String updateIngredient(IngredientDto ingredientDto) {
+    public IngredientDto updateIngredient(IngredientDto ingredientDto, UUID id) {
 
-        Ingredient ingredientFromDao = ingredientDAO.findIngredientById(ingredientDto.getId());
+        if (ingredientDto == null){
+            IngredientDto ingredientDtoNew = new IngredientDto();
+
+            Ingredient ingredient = new Ingredient(
+                    id, "originNeedsToBeSetUp", null, null, "nameNeedsToBeSetUp"
+            );
+
+            ingredientDAO.save(ingredient);
+            ingredientDtoNew.setId(id);
+            ingredientDtoNew.setPrice(ingredient.getPrice());
+            ingredientDtoNew.setOrigin(ingredient.getOrigin());
+            ingredientDtoNew.setAmount(ingredient.getAmount());
+            ingredientDtoNew.setPrice(ingredient.getPrice());
+            ingredientDtoNew.setName(ingredient.getName());
+            return ingredientDtoNew;
+        }
+
+        Ingredient ingredientFromDao = ingredientDAO.findIngredientById(id);
 
         ingredientDAO.deleteByPK(ingredientDto.getId());
 
@@ -77,9 +94,7 @@ public class IngredientServiceImpl implements IngredientService {
 
         ingredientDAO.save(ingredientFromDao);
 
-        String response = "Ingredient has been updated" + ingredientDto.toString();
-
-        return response;
+        return ingredientDto;
     }
 
     @Override
