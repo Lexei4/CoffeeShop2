@@ -30,7 +30,7 @@ public class BeverageController {
      * Мапит POST запросы
      * @param beverageDto - DTO напитка
      * @param componentsBuilder - эллемент для составления ответа
-     * @return
+     * @return ResponseEntity со статусом created
      */
     @PostMapping
     public ResponseEntity<BeverageDto> beverageRegistration(@RequestBody BeverageDto beverageDto, UriComponentsBuilder componentsBuilder) {
@@ -45,7 +45,7 @@ public class BeverageController {
      * мапинг GET - запросов
      *
      * @param id - id напитка, по кторому осуществляется поиск в БД
-     * @return
+     * @return BeverageDto
      */
     @GetMapping("{id}")
     public BeverageDto beverageRequestById(@PathVariable UUID id) {
@@ -59,7 +59,7 @@ public class BeverageController {
      * @param id - id напитка
      * @param beverageDto -  DTO напитка на которую осуществляется замена
      * @param componentsBuilder - переменная для возврата корректного ответа
-     * @return
+     * @return ReaponseEntity со статусом 200
      */
     @PutMapping("{id}")
     public ResponseEntity<BeverageDto> beverageUpdate(@PathVariable UUID id, @RequestBody(required = false) BeverageDto beverageDto, UriComponentsBuilder componentsBuilder) {
@@ -78,7 +78,7 @@ public class BeverageController {
      * Мапинг DELETE запросов
      *
      * @param id - id напитка для удаления
-     * @return
+     * @return String "напиток удален"
      */
     @DeleteMapping("{id}")
     public String beverageDeleteById(@PathVariable UUID id) {

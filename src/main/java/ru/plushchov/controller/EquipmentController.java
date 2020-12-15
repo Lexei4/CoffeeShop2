@@ -32,7 +32,7 @@ public class EquipmentController {
      *
      * @param equipmentDto - DTO ингредиента
      * @param result       - результат запроса
-     * @return
+     * @return EquipmentDto
      */
     @PostMapping
     public EquipmentDto equipmentRegistration(@RequestBody EquipmentDto equipmentDto,
@@ -51,7 +51,7 @@ public class EquipmentController {
      * мапинг GET - запросов
      *
      * @param id - id оборудования, по кторому осуществляется поиск в БД
-     * @return
+     * @return EquipmentDto
      */
     @GetMapping("{id}")
     public EquipmentDto equipmentRequestById(@PathVariable UUID id) {
@@ -65,7 +65,7 @@ public class EquipmentController {
      * @param id - id оборудования
      * @param equipmentDto - DTO оборудования на которую осуществляется замена
      * @param componentsBuilder - переменная для возврата корректного ответа
-     * @return
+     * @return ResponseEntity cо статусом OK или Created, в зависимости от наличия тела PUT Запроса
      */
     @PutMapping("{id}")
     public ResponseEntity<EquipmentDto> equipmentUpdate(@PathVariable UUID id, @RequestBody(required = false) EquipmentDto equipmentDto, UriComponentsBuilder componentsBuilder) {
@@ -84,7 +84,7 @@ public class EquipmentController {
      * Мапинг DELETE запросов
      *
      * @param id - id оборудования для удаления
-     * @return
+     * @return String "оборудование удалено"
      */
     @DeleteMapping("{id}")
     public String equipmentDeleteById(@PathVariable UUID id) {

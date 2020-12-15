@@ -40,7 +40,7 @@ public class IngredientController {
      *
      * @param ingredientDto - DTO ингредиента
      * @param         - результат запроса
-     * @return
+     * @return ResponseEntity, статус Created
      */
     @PostMapping
     public ResponseEntity<IngredientDto> ingredientRegistration(@Validated @RequestBody IngredientDto ingredientDto,
@@ -57,7 +57,7 @@ public class IngredientController {
      * мапинг GET - запросов
      *
      * @param id - id ингредиента, по кторому осуществляется поиск в БД
-     * @return
+     * @return IngredientDto
      */
     @GetMapping("{id}")
     public IngredientDto ingredientRequestById(@PathVariable UUID id) {
@@ -71,7 +71,7 @@ public class IngredientController {
      * @param id - id ингредиента на которую осуществляется замена
      * @param ingredientDto - DTO ингредиента на которую осуществляется замена
      * @param componentsBuilder - переменная для возврата корректного ответа
-     * @return
+     * @return ResponseEntity. Статус зависит от наличия тела сообщения в PUT запросе
      */
     @PutMapping("{id}")
     public ResponseEntity<IngredientDto> ingredientUpdate(@PathVariable UUID id, @RequestBody(required = false)  IngredientDto ingredientDto, UriComponentsBuilder componentsBuilder) {
@@ -90,7 +90,7 @@ public class IngredientController {
      * Мапинг DELETE запросов
      *
      * @param id - id ингредиента для удаления
-     * @return
+     * @return String "ингредиент удален"
      */
     @DeleteMapping("{id}")
     public String ingredientDeleteById(@PathVariable UUID id) {

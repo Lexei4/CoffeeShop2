@@ -8,30 +8,33 @@ import java.util.UUID;
  * Интерфейс для работы с бизнес-логикой класса Equipment
  */
 public interface EquipmentService {
+
     /**
+     * добавляет оборудование  в DAO
      * @param equipmentDto - DTO оборудования
-     *                     добавляет оборудование  в DAO
+     * @return EquipmentDto с проставленным id
      */
     EquipmentDto addEquipment(EquipmentDto equipmentDto);
 
     /**
      * удаляет объект из DAO
-     *
      * @param uuid - id оборудования для удаления
+     * @return String - оборудование удалена
      */
     String deleteEquipment(UUID uuid);
 
     /**
-     * @param - объект оборудование
-     *          обновляет оборудование в ДАО
+     *  обновляет оборудование в ДАО
+     * @param equipmentDto - DTO оборудование
+     * @param id - id оборудование
+     * @return EquipmentDto - DTO обновленного объекта
      */
     EquipmentDto updateEquipment(EquipmentDto equipmentDto, UUID id);
 
     /**
      * Получает DTO оборудования из DAO
-     *
      * @param id - id оборудования
-     * @return
+     * @return EquipmentDto по данному UUID
      */
     EquipmentDto readEquipment(UUID id);
 }
