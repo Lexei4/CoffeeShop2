@@ -55,18 +55,13 @@ public class BeverageController {
 
     /**
      * Мапинг update запросов
-     *
+     * @param id - id напитка
      * @param beverageDto -  DTO напитка на которую осуществляется замена
-     * @param       - результат запроса
+     * @param componentsBuilder - переменная для возврата корректного ответа
      * @return
      */
     @PutMapping("{id}")
     public ResponseEntity<BeverageDto> beverageUpdate(@PathVariable UUID id, @RequestBody(required = false) BeverageDto beverageDto, UriComponentsBuilder componentsBuilder) {
-
-//        if (result.hasErrors()) {
-//            beverageDto.setErrors(result.getAllErrors());
-//            return beverageDto;
-//        }
 
        var result = beverageService.updateBeverage(beverageDto, id);
        var uri = componentsBuilder.path("/api/beverage/" + result.getId()).buildAndExpand(result).toUri();
