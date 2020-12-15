@@ -73,7 +73,6 @@ public class BeverageController {
        }
     }
 
-
     /**
      * Мапинг DELETE запросов
      *

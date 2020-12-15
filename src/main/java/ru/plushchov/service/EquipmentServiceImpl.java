@@ -41,17 +41,25 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
-    public String updateEquipment(EquipmentDto equipmentDto) {
+    public EquipmentDto updateEquipment(EquipmentDto equipmentDto, UUID id) {
+        if (equipmentDto == null){
+            EquipmentDto equipmentDtoNew = new EquipmentDto();
+            Equipment equipment = new Equipment(
+                    id, "nameNeedsToBeSetUp"
+            );
+
+            equipmentDAO.save(equipment);
+            equipmentDtoNew.setId(id);
+            equipmentDtoNew.setEquipmentName(equipment.getName());
+            return equipmentDtoNew;
+        }
+
         Equipment equipmentFromDao = equipmentDAO.findEquipmentById(equipmentDto.getId());
-
         equipmentDAO.deleteByPK(equipmentDto.getId());
-
         equipmentFromDao.setName(equipmentDto.getEquipmentName());
         equipmentFromDao.setId(equipmentDto.getId());
 
-        String response = "Equipment has been updated" + equipmentDto.toString();
-
-        return response;
+        return equipmentDto;
     }
 
     @Override

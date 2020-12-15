@@ -25,7 +25,7 @@ public interface EquipmentService {
      * @param - объект оборудование
      *          обновляет оборудование в ДАО
      */
-    String updateEquipment(EquipmentDto equipmentDto);
+    EquipmentDto updateEquipment(EquipmentDto equipmentDto, UUID id);
 
     /**
      * Получает DTO оборудования из DAO
