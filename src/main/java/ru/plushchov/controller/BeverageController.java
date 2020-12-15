@@ -55,6 +55,7 @@ public class BeverageController {
 
     /**
      * Мапинг update запросов
+     *
      * @param id - id напитка
      * @param beverageDto -  DTO напитка на которую осуществляется замена
      * @param componentsBuilder - переменная для возврата корректного ответа

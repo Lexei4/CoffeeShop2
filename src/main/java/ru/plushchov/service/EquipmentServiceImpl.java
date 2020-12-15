@@ -54,7 +54,7 @@ public class EquipmentServiceImpl implements EquipmentService {
             return equipmentDtoNew;
         }
 
-        Equipment equipmentFromDao = equipmentDAO.findEquipmentById(equipmentDto.getId());
+        Equipment equipmentFromDao = equipmentDAO.findEquipmentById(id);
         equipmentDAO.deleteByPK(equipmentDto.getId());
         equipmentFromDao.setName(equipmentDto.getEquipmentName());
         equipmentFromDao.setId(equipmentDto.getId());

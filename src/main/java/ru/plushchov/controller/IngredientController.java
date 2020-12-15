@@ -3,7 +3,6 @@ package ru.plushchov.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -69,18 +68,22 @@ public class IngredientController {
     /**
      * Мапинг update запросов
      *
+     * @param id - id ингредиента на которую осуществляется замена
      * @param ingredientDto - DTO ингредиента на которую осуществляется замена
-     * @param result        - результат запроса
+     * @param componentsBuilder - переменная для возврата корректного ответа
      * @return
      */
-    @PutMapping
-    public String ingredientUpdate(@RequestBody IngredientDto ingredientDto, BindingResult result) {
+    @PutMapping("{id}")
+    public ResponseEntity<IngredientDto> ingredientUpdate(@PathVariable UUID id, @RequestBody(required = false)  IngredientDto ingredientDto, UriComponentsBuilder componentsBuilder) {
 
-        if (result.hasErrors()) {
-            ingredientDto.setErrors(result.getAllErrors());
-            return ingredientDto.getErrors().toString();
+        var result = ingredientService.updateIngredient(ingredientDto, id);
+        var uri = componentsBuilder.path("/api/ingredient/" + result.getId()).buildAndExpand(result).toUri();
+        if (ingredientDto == null){
+            return ResponseEntity.created(uri).body(result);
         }
-        return ingredientService.updateIngredient(ingredientDto);
+        else {
+            return ResponseEntity.ok().body(result);
+        }
     }
 
     /**

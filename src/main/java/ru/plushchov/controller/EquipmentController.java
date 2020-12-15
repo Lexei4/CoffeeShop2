@@ -60,6 +60,7 @@ public class EquipmentController {
     }
 
     /**
+     * Мапинг update запросов
      *
      * @param id - id оборудования
      * @param equipmentDto - DTO оборудования на которую осуществляется замена
@@ -70,7 +71,7 @@ public class EquipmentController {
     public ResponseEntity<EquipmentDto> equipmentUpdate(@PathVariable UUID id, @RequestBody(required = false) EquipmentDto equipmentDto, UriComponentsBuilder componentsBuilder) {
 
         var result = equipmentService.updateEquipment(equipmentDto, id);
-        var uri = componentsBuilder.path("/api/beverage/" + result.getId()).buildAndExpand(result).toUri();
+        var uri = componentsBuilder.path("/api/equipment/" + result.getId()).buildAndExpand(result).toUri();
         if (equipmentDto == null){
             return ResponseEntity.created(uri).body(result);
         }

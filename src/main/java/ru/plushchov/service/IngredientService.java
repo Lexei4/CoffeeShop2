@@ -21,12 +21,13 @@ public interface IngredientService {
      */
     String deleteIngredient(UUID uuid);
 
-    /***
-     *
-     * @param ingredientDto  - DTO ингредиента
+    /**
      * обновляет ингредиент в ДАО
+     * @param ingredientDto - DTO ингредиента
+     * @param id - id ингредиента
+     * @return
      */
-    String updateIngredient(IngredientDto ingredientDto);
+    IngredientDto updateIngredient(IngredientDto ingredientDto, UUID id);
 
     /**
      * читает ингредиент из DAO
